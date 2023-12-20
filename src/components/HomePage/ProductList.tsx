@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import useFetch from '../../hooks/useFetch'
 import ProductCard from './ProductCard'
+import Loading from '../Loading'
 
 const ProductList = () => {
 
@@ -12,7 +13,11 @@ const ProductList = () => {
     }, [])
 
     if (loading) {
-      return <p>Cargando...</p>;
+      return (
+        <div>
+          <Loading/>
+        </div>
+      );
     }
   
     if (hasError) {

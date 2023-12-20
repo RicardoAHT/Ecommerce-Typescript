@@ -1,0 +1,32 @@
+.loading{
+    display: flex;
+    gap: 1rem;
+}
+.pulser{
+    width: 50px;
+    height: 50px;
+    background-color: #09f;
+    border-radius: 50%;    
+}
+
+.pulser:first-child{
+    /*transition-delay: 0s ;*/
+    animation: loader .6s ease-in-out alternate infinite;
+}
+.pulser:nth-child(2){
+    /*transition-delay: 350ms;*/
+    animation: loader .6s ease-in-out alternate .2s infinite;
+
+}
+.pulser:nth-child(3){
+    animation: loader .6s ease-in-out alternate .4s infinite;
+    transition-delay: 700ms ;
+}
+
+@keyframes loader{
+
+    to{
+        opacity: 0;
+    }
+}
+

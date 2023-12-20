@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 import "./App.css"
+import "./styles/loading.css"
 import { HashRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store/index.ts'
