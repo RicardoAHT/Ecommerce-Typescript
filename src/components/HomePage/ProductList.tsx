@@ -1,0 +1,39 @@
+import React, { useEffect } from 'react'
+import useFetch from '../../hooks/useFetch'
+import ProductCard from './ProductCard'
+
+const ProductList = () => {
+
+    const url = "https://ecommercebackendbyrick.onrender.com/products"
+    const [products, getProducts, hasError, loading] = useFetch(url)
+  
+    useEffect(() => {
+      getProducts()
+    }, [])
+
+    if (loading) {
+      return <p>Cargando...</p>;
+    }
+  
+    if (hasError) {
+      return <p>Error al obtener los datos.</p>;
+    }
+  
+    console.log(products)
+
+
+  return (
+    <section>
+      {
+        products?.map(product => (
+            <ProductCard
+              key={product.id}
+              product={product}
+            />
+            ))
+      }
+    </section>
+  )
+}
+
+export default ProductList
