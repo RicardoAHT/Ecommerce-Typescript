@@ -1,4 +1,5 @@
 import React from 'react'
+import ButtonCart from './ButtonCart'
 
 const ProductCard = ({ product }) => {
   return (
@@ -11,6 +12,7 @@ const ProductCard = ({ product }) => {
             <li>Descripcion: {product.description}</li>
             <li>Precio: {product.price}</li>
         </ul>
+        <ButtonCart/>
     </article>
   )
 }
