@@ -3,14 +3,16 @@ import ButtonCart from './ButtonCart'
 
 const ProductCard = ({ product }) => {
   return (
-    <article>
-        <img src={product.images[0].url} alt="Producto" />
-        <h3>{product.title}</h3>
-        <ul>
-            <li>Marca: {product.brand}</li>
-            <li>Categoria: {product.category.name}</li>
-            <li>Descripcion: {product.description}</li>
-            <li>Precio: {product.price}</li>
+    <article className='productCard'>
+        <div className='productCard__container'>
+          <img className='productCard__container__img'  src={product.images[0].url} alt="Producto" />
+        </div>
+        <h3 className='productCard__h3'>{product.title}</h3>
+        <ul className='productCard__ul'>
+            <li className='productCard__ul__li'>Marca: {product.brand}</li>
+            <li className='productCard__ul__li'>Categoria: {product.category.name}</li>
+            <li className='productCard__ul__li'>Descripcion: {product.description}</li>
+            <li className='productCard__ul__li'>Precio: {product.price}</li>
         </ul>
         <ButtonCart/>
     </article>

@@ -2,8 +2,8 @@ import React from 'react'
 
 const ButtonCart = () => {
   return (
-    <div>
-      <button>
+    <div className='buttonCart'>
+      <button className='buttonCart__button'>
         Add +
       </button>
     </div>

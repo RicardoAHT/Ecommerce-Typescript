@@ -13,11 +13,11 @@ const HomePage = () => {
     <div>
       <NavBar/>
       <Header/>
+      <div className='homepage__Container'>
+        <FilterByPrice/>
+        <FilterCategory/>
+      </div>
       <main>
-        <section>
-          <FilterByPrice/>
-          <FilterCategory/>
-        </section>
         <ProductList/>
       </main>
 

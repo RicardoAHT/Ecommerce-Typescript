@@ -28,7 +28,7 @@ const ProductList = () => {
 
 
   return (
-    <section>
+    <section className='productList'>
       {
         products?.map(product => (
             <ProductCard

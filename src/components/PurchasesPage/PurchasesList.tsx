@@ -3,10 +3,10 @@ import PurchasesCard from './PurchasesCard'
 
 const PurchasesList = () => {
   return (
-    <div>
+    <section className='purchasesList'>
       <h2>Purchases List</h2>
       <PurchasesCard/>
-    </div>
+    </section>
   )
 }
 
