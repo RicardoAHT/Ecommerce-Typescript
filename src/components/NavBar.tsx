@@ -21,7 +21,9 @@ const NavBar = () => {
                 </Link>
             </li>
             <li className='appBar__ul__li'>
-                Purchases
+                <Link to="/purchases/:id">
+                    Purchases
+                </Link>
             </li>
         </ul>
     </nav>
