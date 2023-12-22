@@ -2,7 +2,7 @@
 /*! AppBar*/
 .appBar{
   background: linear-gradient(to bottom, ghostwhite 60%, rgb(99, 99, 156));
-  padding: 1rem;
+  padding: 1rem 2.5rem 1rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -123,4 +123,30 @@
 
 .purchasesList{
   background-color: aqua;
+}
+
+/*! CartPage */
+.iconContainer{
+  position: relative;
+
+}
+.fa-solid{
+  color: blue;
+  font-size: 1.7rem;
+
+}
+.counter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 1.15rem;
+  height: 1.15rem;
+  font-weight: bold;
+  font-size: .57rem;
+  background-color: red;
+  color: ghostwhite;
+  position: absolute;
+  left: 80%;
+  top: -40%;
 }
