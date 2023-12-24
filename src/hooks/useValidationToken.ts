@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { showNotification } from "../store/app.slice";
+import { showNotification } from "../store/slices/app.slice";
 
 const useValidateLogin = () => {
 
