@@ -27,7 +27,9 @@ const NavBar = () => {
                 </Link>
             </li>
         </ul>
-        <CounterElements/>
+        <Link to="/">
+            <CounterElements/>
+        </Link>
     </nav>
   )
 }
