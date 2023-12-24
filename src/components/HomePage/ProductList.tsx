@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import useFetch from '../../hooks/useFetch'
 import ProductCard from './ProductCard'
-import Loading from '../Loading'
+import Loading from '../shared/Loading'
 
 const ProductList = () => {
 

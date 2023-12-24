@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import CounterElements from './CartPage/CounterElements'
+import CounterElements from '../CartPage/CounterElements'
 
 const NavBar = () => {
   return (
