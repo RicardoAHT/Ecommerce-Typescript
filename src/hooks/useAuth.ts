@@ -13,12 +13,12 @@ const useAuth = () => {
         axios.post(url, data)
             .then(response => {
                 const token = response.data.token  
-                const username = response.data.username //! Modificar la instancia
-                const email = response.data.email  //! Modificar la instancia
+                const name = response.data.user.firstName //! Modificar la instancia
+                const email = response.data.user.email  //! Modificar la instancia
                 localStorage.setItem("token", response.data.token)
-                localStorage.setItem("userName", response.data.name)  //! Modificar la instancia
-                localStorage.setItem("email", response.data.email) //! Modificar la instancia
-                const obj = {token, username, email} //! Modificar la instancia
+                localStorage.setItem("name", response.data.user.firstName)  //! Modificar la instancia
+                localStorage.setItem("email", response.data.user.email) //! Modificar la instancia
+                const obj = {token, name, email} //! Modificar la instancia
                 dispatch(setCredentialsSlice(obj))
                 navigate("/")
                 console.log(response.data) })
