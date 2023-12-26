@@ -14,7 +14,9 @@ const ProductCard = ({ product }) => {
             <li className='productCard__ul__li'>Descripcion: {product.description}</li>
             <li className='productCard__ul__li'>Precio: {product.price}</li>
         </ul>
-        <ButtonCart/>
+        <ButtonCart
+          product={product} // Envio la informacion de cada producto
+        />
     </article>
   )
 }
