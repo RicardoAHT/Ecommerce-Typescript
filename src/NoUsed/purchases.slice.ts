@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { request } from './app.slice';
-import axios from '../../utils/axios';
+// import axios from '../../utils/axios';
 
 export const purchasesSlice = createSlice({
     name: 'purchases',

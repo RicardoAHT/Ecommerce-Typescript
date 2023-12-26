@@ -1,7 +1,8 @@
 const getConfigToken = () => {
     return{
         headers: {
-            Authorization:`JWT ${localStorage.getItem("token")}`
+            Authorization:`Bearer ${localStorage.getItem("token")}`
+            //Authorization:`JWT ${localStorage.getItem("token")}`
         }
     }
 }

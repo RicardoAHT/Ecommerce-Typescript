@@ -1,12 +1,12 @@
 import React from 'react'
 
-const PurchasesCard = () => {
+const PurchasesCard = ({purchase}) => {
   return (
     <div>
       <ul>
-        <li>Imagen</li>
-        <li>Producto</li>
-        <li>Purchase date</li>
+        <li>{purchase.id}</li>
+        <li>{purchase.productId}</li>
+        <li>{purchase.createdAt}</li>
         <li>Quantity</li>
         <li>Price</li>
       </ul>

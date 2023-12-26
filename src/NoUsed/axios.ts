@@ -6,7 +6,7 @@ const axios = () => deafultAxios.create({
         Authorization: `Bearer ${localStorage.getItem("token")}`
     }
 })
-export default axios
+//? export default axios
 
 /*
 Se define una función anónima (arrow function) llamada axios 
