@@ -11,7 +11,13 @@ export const cartSlice = createSlice({
     initialState: [] as Products[],
     reducers: {
         setCartSlice: (state, action: PayloadAction<Products[]>) => action.payload, //Defino el setter
-        addProduct: (state, action: PayloadAction<Products>) => [...state, action.payload], // Agrego productos al carrito, dejando los que ya estaban gracias al spread operator
+        addProduct: (state, action: PayloadAction<Products>) => { // Agrego productos al carrito, dejando los que ya estaban gracias al spread operator
+        if(state.findIndex(product => product.id === action.payload.id) === -1){
+            return [...state, action.payload]
+        } else{
+            return state
+        }
+    },
         deleteProduct: (state, action: PayloadAction<{id: number | string}>) => state.filter(product => product.id !== action.payload.id) //! Revisar // Elimino el producto
     }
 })
