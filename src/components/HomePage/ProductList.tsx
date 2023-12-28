@@ -24,7 +24,7 @@ const ProductList = () => {
       return <p>Error al obtener los datos.</p>;
     }
   
-    console.log(products)
+    //console.log(products)
 
 
   return (

@@ -31,7 +31,7 @@ useEffect(() => {
     
 }, [])
 
-console.log(cart)
+// console.log(cart)
   return (
     <section className='carList'>
         <h3 className='cartList__h3'>Cart List</h3>
