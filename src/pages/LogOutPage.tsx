@@ -2,7 +2,7 @@ import React from 'react'
 import NavBar from '../components/shared/NavBar'
 import Header from '../components/shared/Header'
 
-const LogOutPage = () => {
+const LogOutPage: React.FC = () => {
   return (
     <div>
       <NavBar/>

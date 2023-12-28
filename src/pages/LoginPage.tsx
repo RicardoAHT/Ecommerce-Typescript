@@ -4,7 +4,7 @@ import Header from '../components/shared/Header'
 import LoginForm from '../components/LoginPage/LoginForm'
 import SigninForm from '../components/LoginPage/SigninForm'
 
-const LoginPage = () => {
+const LoginPage: React.FC = () => {
   return (
     <div>
       <NavBar/>

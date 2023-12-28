@@ -4,24 +4,20 @@ import Header from '../components/shared/Header'
 import ProductList from '../components/HomePage/ProductList'
 import FilterByPrice from '../components/HomePage/FilterByPrice'
 import FilterCategory from '../components/HomePage/FilterCategory'
-import { useSelector } from 'react-redux'
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
 
-  const cartList = useSelector(store => store.cart)
-  
-  console.log(cartList)
 
   return (
     <div>
-      <NavBar/>
+      <NavBar/> {/*Renderizo eñ navegador */}
       <Header/>
       <div className='homepage__Container'>
         <FilterByPrice/>
         <FilterCategory/>
       </div>
       <main>
-        <ProductList/>
+        <ProductList/> {/*Lista de Productos para agregar al estado global del carrito */}
       </main>
 
     </div>

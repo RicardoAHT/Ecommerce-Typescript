@@ -3,7 +3,7 @@ import Header from '../components/shared/Header'
 import NavBar from '../components/shared/NavBar'
 import PurchasesList from '../components/PurchasesPage/PurchasesList'
 
-const PurchasesPage = () => {
+const PurchasesPage: React.FC = () => {
   return (
     <div>
       <NavBar/>
