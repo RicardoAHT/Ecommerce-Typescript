@@ -1,26 +1,30 @@
-1. Importo Axios, Redux y React-Dom
+1. Librerias usadas: Axios, Redux, React-Roueter-Dom y React-HookForm
 
         ROUTER DOM
 
-2. Envolvemos main.tsx en <HashRouter> para empezar a crear las rutas.
-3. Abrimos App.tsx y creamos <Routes> dentro de app para ir creando dentro las rutas.
-4. Creamos rutas dentro de <Routes> con <Route/>
-5. Definimos la ruta en en Route asi: <Route path="/" element={<componente/>} />
-6. Creamos la carpeta pages dentro de src
-7. Creamos los componentes de pages. la primera se puede llamar HomePage.jsx
+2. Envolvemos main.tsx en <HashRouter> </HashRouter> para empezar a crear las rutas.
+3. Abrimos App.tsx y creamos <Routes> </Routes> dentro de app para almacenar ahi las rutas.
+4. Creamos rutas dentro de <Routes> con <Route />
+5. Creamos la carpeta pages dentro de src
+6. Creamos los componentes de pages. la primera se puede llamar HomePage.jsx
+7. Definimos la ruta en Route asi: <Route path="/" element={<componente/>} /> 
 8. Se renderiza el componente HomePage en element del paso 8 y asi con las demas rutas y pages.
 
  REDUX
 
-12. En main.tsx envuelvo la app en el <Provider> = el provider me va a permitir acceder a estado globales en cualquier parte de la app
-13. Se crea la carpeta store dentro de src
-14. Creo un archivo index.js dentro de la carpeta store, en este archivo voy a crear la store. (configureStore)
-15. export default configureStore({reducer:{}})
-16. Se le pasa la store al provider que envuelve la app.
+12. Se crea la carpeta store dentro de src
+13. Creo un archivo index.js dentro de la carpeta store, en este archivo voy a crear la store. (configureStore)
+14. export default configureStore({reducer:{}})
+15. En main.tsx envuelvo la app en el <Provider> </Provider> el provider me va a permitir acceder a estado globales y funciones Thunk.
+16. Se le pasa la store al provider que envuelve la app <Provider store={store}> </Provider>.
 17. Creamos la carpeta slices dentro de la carpeta store.
 18. En la carpeta slices creamos cada uno de los archivos.slice.js estos slice van a almacenar cada uno de los estados globales. snippet(slice)
-19. Exporto mi slice para importarlo en mi store y colocarlo dentro de mis reducers, asi queda guardado como un estado global.
+19. Exporto mi slice 
+20. importo el slice en mi store y lo coloco dentro de mis reducers, asi queda guardado como un estado global.
     nota: las actions hay que despacharlas con useDispatch()
+    nota: los thunks tambien se despachan
     nota: const "mireducer" = useSelector(store => {store."mireducer"}) me permite acceder a lo que tengo en mi store
 
     useRef
+
+    HookForm

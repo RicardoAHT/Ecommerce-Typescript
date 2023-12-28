@@ -150,3 +150,24 @@
   left: 80%;
   top: -40%;
 }
+
+/*? cartList */
+
+.cartList__container{
+  display: flex;
+}
+
+
+/*? CartCard */
+.cartCard{
+  background-color: aquamarine;
+  margin: 1rem;
+}
+.cartCard__container{
+  background-color: gray;
+}
+.cartCard__ul{
+  list-style: none;
+  padding: .3rem;
+}
+.cartCard__ul__li{}
