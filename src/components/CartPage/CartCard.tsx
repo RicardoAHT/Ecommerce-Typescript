@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 
 interface CartCardProps {
   product: {
+    id: number;
     title: string;
     price: number;
     // Agrega otras propiedades del producto según sea necesario

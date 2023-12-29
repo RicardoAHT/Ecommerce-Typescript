@@ -4,13 +4,24 @@ import getConfigToken from "../services/getConfigToken";
 
 const useFetchToken = () => {
 
-    interface ApiResponse{
+    interface ApiResponse{ //! Verificar
         brand: string;
-        category:{}
+        category:{
+            id: number
+            name:string
+            updateAt: string
+          };
         description: string;
-        id: number;
-        price: string;
+        id: number
+        images: [{
+            id: number
+            productId: number
+            updateAt: string
+            url: string
+        }];
+        price: number;
         title: string;
+        updateAt: string
     }
 
     const [infoApi, setInfoApi] = useState< ApiResponse[] | undefined>(undefined)

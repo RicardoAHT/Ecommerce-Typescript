@@ -1,6 +1,12 @@
 import React from 'react'
 
-const PurchasesCard: React.FC = ({purchase}) => {
+interface Purchase {
+  id: number;
+  productId: number;
+  createdAt: string;
+}
+
+const PurchasesCard: React.FC<{ purchase: Purchase }> = ({purchase}) => {
   return (
     <div>
       <ul>

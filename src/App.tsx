@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux'
 import { setCredentialsSlice } from './store/slices/credentials.slice'
 import ProtectedRoutes from './pages/ProtectedRoutes'
 
-const App = () => {
+const App: React.FC = () => {
 
   const dispatch = useDispatch()
 

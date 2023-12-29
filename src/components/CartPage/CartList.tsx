@@ -1,12 +1,18 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import CartCard from './CartCard'
-import { RootState } from '@reduxjs/toolkit/query'
+import { RootState } from '../../store'
+
+interface Product {
+    id: number;
+    title: string;
+    price: number;
+    // Agrega otras propiedades del producto según sea necesario
+  };
 
 const CartList: React.FC = () => {
     
     const cart = useSelector((store: RootState) => store.cart)
-
 
 return (
     <section className='carList'>
@@ -16,7 +22,7 @@ return (
                 cart.map( product => (
                     <CartCard
                         key={product.id}
-                        product={product}
+                        product={product as Product}
                         />
                     ))
                 }

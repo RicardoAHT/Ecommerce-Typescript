@@ -4,6 +4,13 @@ import PurchasesCard from './PurchasesCard'
 import Loading from '../shared/Loading'
 import useFetchToken from '../../hooks/useFetchToken'
 
+interface Purchase {
+  id: number;
+  productId: number;
+  createdAt: string;
+  // Agrega otras propiedades del objeto Purchase según sea necesario
+}
+
 const PurchasesList: React.FC = () => {
 
   const [purchases, getPurchases, hasError, loading] = useFetchToken()
@@ -11,7 +18,6 @@ const PurchasesList: React.FC = () => {
   useEffect(() => {
     getPurchases("/purchases")
   }, [])
-  
   
   if (loading) {
     return (

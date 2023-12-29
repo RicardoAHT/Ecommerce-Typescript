@@ -3,32 +3,10 @@ import useFetch from '../../hooks/useFetch'
 import ProductCard from './ProductCard'
 import Loading from '../shared/Loading'
 
-interface Products {
-  brand: string;
-  category:{
-      id: number
-      name:string
-      updateAt: string
-    };
-  description: string;
-  id: number
-  images: [{
-      id: number
-      productId: number
-      updateAt: string
-      url: string
-  }];
-  price: number;
-  title: string;
-  updateAt: string
-}
-
-
-
 const ProductList: React.FC = () => {
 
     const url = "https://ecommercebackendbyrick.onrender.com/products"
-    const [products, getProducts, hasError, loading] = useFetch<Products[]>(url)
+    const [products, getProducts, hasError, loading] = useFetch(url)
   
     useEffect(() => {
       getProducts()
@@ -53,11 +31,11 @@ const ProductList: React.FC = () => {
     <section className='productList'>
       {
         products?.map(product => (
-            <ProductCard
-              key={product.id}
-              product={product}
-            />
-            ))
+          <ProductCard
+            key={product.id}
+            product={product}
+          />
+        ))
       }
     </section>
   )
