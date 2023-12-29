@@ -46,7 +46,9 @@ const SigninForm: React.FC = () => {
             <input {...register("phone", {required:true, minLength:7})} type='number' id='phone' />
             {errors.phone && <span>This field is required</span>}
           </div>
-          <input type="submit" />
+          <button type="submit">
+            Enviar
+          </button>
       </form>
     </div>
   )

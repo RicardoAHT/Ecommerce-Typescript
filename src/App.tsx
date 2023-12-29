@@ -8,6 +8,7 @@ import CartPage from './pages/CartPage'
 import { useDispatch } from 'react-redux'
 import { setCredentialsSlice } from './store/slices/credentials.slice'
 import ProtectedRoutes from './pages/ProtectedRoutes'
+import LoggedPage from './pages/LoggedPage'
 
 const App: React.FC = () => {
 
@@ -27,7 +28,7 @@ const App: React.FC = () => {
       <h2>App</h2>
       <Routes>
         <Route path='/' element={<HomePage/>}/>
-        <Route path='/login' element={<LoginPage/>}/>
+        <Route path='/login' element={<LoggedPage/>}/>
         <Route path='/logout' element={<LogOutPage/>}/>
         <Route element={<ProtectedRoutes/>}>
           <Route path='/purchases/:id' element={<PurchasesPage/>}/>
