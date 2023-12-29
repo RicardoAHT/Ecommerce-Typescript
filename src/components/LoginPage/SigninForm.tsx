@@ -9,10 +9,10 @@ type Inputs = {
   phone: number
 };
 
-const SigninForm = () => {
+const SigninForm: React.FC = () => {
 
   //? Utlizo React-hook-form para la validacion de formularios
-  const  {register, handleSubmit, watch, formState: {errors}, reset} = useForm<Inputs>() //desestructuracion de useForm
+  const  {register, handleSubmit, formState: {errors}, /*reset*/} = useForm<Inputs>() //desestructuracion de useForm
   const onSubmit: SubmitHandler<Inputs> = (data) => { // La funcion submit para el formulario
     console.log(data)
   };

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, SubmitHandler } from 'react-hook-form'
 import useAuth from '../../hooks/useAuth'
 
 type Inputs = {
@@ -8,12 +8,12 @@ type Inputs = {
 };
 
 
-const LoginForm = () => {
+const LoginForm: React.FC = () => {
 
-  const {register, handleSubmit, reset, watch} = useForm()
+  const {register, handleSubmit, /*reset, watch*/} = useForm<Inputs>()
   const {loginUser} = useAuth()
 
-  const onSubmit = (data) => {
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
     loginUser(data)
   }
 

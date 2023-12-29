@@ -8,7 +8,6 @@ interface Products {
     brand: string
 }
 
-
 export const cartSlice = createSlice({
     name: "cart",
     initialState: [] as Products[],

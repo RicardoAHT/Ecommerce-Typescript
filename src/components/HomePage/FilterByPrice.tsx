@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FilterByPrice = () => {
+const FilterByPrice: React.FC = () => {
   return (
     <div className='filterByPrice'>
       <h3 className='filterByPrice__h3'>Filter Price</h3>

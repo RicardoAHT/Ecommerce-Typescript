@@ -3,10 +3,32 @@ import useFetch from '../../hooks/useFetch'
 import ProductCard from './ProductCard'
 import Loading from '../shared/Loading'
 
-const ProductList = () => {
+interface Products {
+  brand: string;
+  category:{
+      id: number
+      name:string
+      updateAt: string
+    };
+  description: string;
+  id: number
+  images: [{
+      id: number
+      productId: number
+      updateAt: string
+      url: string
+  }];
+  price: number;
+  title: string;
+  updateAt: string
+}
+
+
+
+const ProductList: React.FC = () => {
 
     const url = "https://ecommercebackendbyrick.onrender.com/products"
-    const [products, getProducts, hasError, loading] = useFetch(url)
+    const [products, getProducts, hasError, loading] = useFetch<Products[]>(url)
   
     useEffect(() => {
       getProducts()
@@ -24,7 +46,7 @@ const ProductList = () => {
       return <p>Error al obtener los datos.</p>;
     }
   
-    //console.log(products)
+    console.log(products)
 
 
   return (

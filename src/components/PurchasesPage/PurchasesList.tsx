@@ -4,7 +4,7 @@ import PurchasesCard from './PurchasesCard'
 import Loading from '../shared/Loading'
 import useFetchToken from '../../hooks/useFetchToken'
 
-const PurchasesList = () => {
+const PurchasesList: React.FC = () => {
 
   const [purchases, getPurchases, hasError, loading] = useFetchToken()
 

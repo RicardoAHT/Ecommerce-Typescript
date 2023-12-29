@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PurchasesCard = ({purchase}) => {
+const PurchasesCard: React.FC = ({purchase}) => {
   return (
     <div>
       <ul>

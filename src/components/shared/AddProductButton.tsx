@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AddProductButton = () => {
+const AddProductButton: React.FC = () => {
   return (
     <button>
       <p>+</p>

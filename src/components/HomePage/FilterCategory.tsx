@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FilterCategory = () => {
+const FilterCategory: React.FC = () => {
   return (
     <div className='filterByCategory'>
       <h3>Filter Category</h3>

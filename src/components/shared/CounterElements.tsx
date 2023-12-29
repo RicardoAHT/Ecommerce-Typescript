@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CounterElements = () => {
+const CounterElements: React.FC = () => {
   return (
     <div >
       <div className='iconContainer'>

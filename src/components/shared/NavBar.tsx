@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import CounterElements from './CounterElements'
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   return (
     <nav className='appBar'>
         <ul className='appBar__ul'>

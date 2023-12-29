@@ -1,7 +1,31 @@
 import React from 'react'
 import ButtonCart from './ButtonCart'
 
-const ProductCard = ({ product }) => {
+interface Products {
+  brand: string;
+  category:{
+      id: number
+      name:string
+      updateAt: string
+    };
+  description: string;
+  id: number
+  images: [{
+      id: number
+      productId: number
+      updateAt: string
+      url: string
+  }];
+  price: number;
+  title: string;
+  updateAt: string
+}
+
+interface ProductCardProps {
+  product: Products;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <article className='productCard'>
         <div className='productCard__container'>

@@ -5,11 +5,22 @@ const useFetch = (url:string) => {
 
     interface ApiResponse{
         brand: string;
-        category:{}
+        category:{
+            id: number
+            name:string
+            updateAt: string
+          };
         description: string;
-        id: number;
-        price: string;
+        id: number
+        images: [{
+            id: number
+            productId: number
+            updateAt: string
+            url: string
+        }];
+        price: number;
         title: string;
+        updateAt: string
     }
 
    /* interface Product {
