@@ -11,7 +11,7 @@ type Inputs = {
 const LoginForm: React.FC = () => {
 
   const {register, handleSubmit, /*reset, watch*/} = useForm<Inputs>()
-  const {loginUser} = useAuth()
+  const {loginUser} = useAuth() //Para enviar la informacion del usuario loggeado
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     loginUser(data)
