@@ -44,7 +44,7 @@ const CartList: React.FC = () => {
         getCart("/cart")
     }, [])
 
-    console.log(cart)
+    //console.log(cart)
     
     if(loading){
         return(
