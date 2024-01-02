@@ -3,19 +3,38 @@ import { deleteProduct } from '../../store/slices/cart.slice';
 import { useDispatch } from 'react-redux';
 
 interface CartCardProps {
-  product: {
-    id: number;
-    title: string;
+product:{
+    brand: string;
+    category:{
+        id: number
+        name:string
+        updateAt: string
+    };
+    description: string;
+    id: number
+    images: [{
+        id: number
+        productId: number
+        updateAt: string
+        url: string
+    }];
     price: number;
-    // Agrega otras propiedades del producto según sea necesario
-  };
+    title: string;
+    updateAt: string
+};
+productId: number;
+quantity: number;
+user:{
+    email:"Leo";
+    id: number;
+    firstName: string;
+    lastName: string;
 }
-
-
+}
 
 const CartCard: React.FC<CartCardProps> = ({product}) => {
 
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState(product.quantity)
 
   const handlePlusQuantity = () => {
     let counter = quantity
@@ -37,9 +56,9 @@ const CartCard: React.FC<CartCardProps> = ({product}) => {
     <article className='cartCard'>
       <div className='cartCard__container'>
         <ul className='cartCard__ul'>
-          <li className='cartCard__ul__li'>imagen</li>
-          <li className='cartCard__ul__li'>{product.title}</li>
-          <li className='cartCard__ul__li'>{product.price}</li>
+          <img src={product.product.images[0].url} alt="Imagen Producto" />
+          <li className='cartCard__ul__li'>{product.product.title}</li>
+          <li className='cartCard__ul__li'>{product.product.price}</li>
         </ul>
         <button onClick={handleMinusQuantity}> - </button>
           <span> {quantity} </span>
