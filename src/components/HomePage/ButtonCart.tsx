@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import useFetchCart from '../../hooks/useFetchCart'
 
 const ButtonCart: React.FC = ({product}) => {
