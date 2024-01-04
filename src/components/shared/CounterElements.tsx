@@ -1,12 +1,16 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const CounterElements: React.FC = () => {
+
+  const cartCounter = useSelector(store => store.cartCounter)
+  console.log(cartCounter)
   return (
     <div >
       <div className='iconContainer'>
         <i className="fa-solid fa-cart-shopping icon"></i>
         <div  className='counter'>
-          <p>100</p>
+          <p>{cartCounter}</p>
         </div>
       </div >
     </div>
