@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import useFetchCart from '../../hooks/useFetchCart';
+import { setCartCounterSlice } from '../../store/slices/cartCounter.slice';
+import { useDispatch, useSelector } from 'react-redux';
 
 interface CartCardProps {
 product:{
@@ -37,16 +39,23 @@ const CartCard: React.FC<CartCardProps> = ({product, setDeleteApiEffect, deleteA
   const [ infoApi, getApi, hasError, loading, postApi, deleteApi ] = useFetchCart()
 
   const id = product.id
+  
+  let cartCounter = useSelector(store => store.cartCounter)
+  const dispatch = useDispatch()
 
   const handlePlusQuantity = () => {
     let counter = quantity
     setQuantity(counter += 1)
+    cartCounter += 1
+    dispatch(setCartCounterSlice(cartCounter))
   }
 
   const handleMinusQuantity = () => {
     let counter = quantity
     if(counter > 1){
       setQuantity(counter -= 1)
+      cartCounter -= 1
+      dispatch(setCartCounterSlice(cartCounter))
     }
   }
 
