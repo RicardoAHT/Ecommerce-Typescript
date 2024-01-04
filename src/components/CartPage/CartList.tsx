@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import CartCard from './CartCard'
 import useFetchCart from '../../hooks/useFetchCart';
 import Loading from '../shared/Loading';
-// import { useSelector } from 'react-redux'
-// import { RootState } from '../../store'
 
 interface Product {
     product:{
@@ -37,12 +35,12 @@ interface Product {
 
 const CartList: React.FC = () => {
     
-    //const cart = useSelector((store: RootState) => store.cart)
     const [cart, getCart, hasError, loading] = useFetchCart()
+    const [deleteApiEffect, setDeleteApiEffect] = useState(false)
 
     useEffect(() => {
         getCart("/cart")
-    }, [])
+    }, [deleteApiEffect])
 
     //console.log(cart)
     
@@ -63,9 +61,11 @@ return (
                     <CartCard
                         key={product.id}
                         product={product as Product}
+                        setDeleteApiEffect={setDeleteApiEffect}
+                        deleteApiEffect={deleteApiEffect}
                     />
-                    ))
-                }
+                ))
+            }
         </div>
     </section>
   )
