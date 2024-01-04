@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import getConfigToken from "../services/getConfigToken";
+import { useNavigate } from "react-router-dom";
 
 const useFetchCart = () => {
 
@@ -37,6 +38,7 @@ const useFetchCart = () => {
     const [infoApi, setInfoApi] = useState< ApiResponse[] | undefined>(undefined)
     const [hasError, setHasError] = useState(false)
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
 
     const getApi = (path: string) => {
         setLoading(true)
@@ -52,6 +54,7 @@ const useFetchCart = () => {
             })
             .finally(() => {
                 setLoading(false)
+                navigate("/cart")
             })      
     }
 
@@ -60,7 +63,7 @@ const useFetchCart = () => {
         const url = `https://ecommercebackendbyrick.onrender.com${path}`
         axios.post(url, data, getConfigToken())
             .then(response =>{
-                console.log(response.data)
+                //console.log(response.data)
                 setInfoApi( response.data )
                 // setInfoApi([...playList, response.data.info])
                 })
@@ -70,7 +73,21 @@ const useFetchCart = () => {
             })    
     }
 
+    const deleteApi = (path: string, id: number) =>{
+        setLoading(true)
+        const url = `https://ecommercebackendbyrick.onrender.com${path}/${id}`
+        axios.delete(url, getConfigToken())
+            .then(response => {
+                //console.log(response.data)
+                setInfoApi(response.data)
+            })
+            .catch(error => console.log(error))
+            .finally(() => {
+                setLoading(false)
+            })
+    }
 
-    return [ infoApi, getApi, hasError, loading, postApi] as const
+
+    return [ infoApi, getApi, hasError, loading, postApi, deleteApi] as const
 }
 export default useFetchCart

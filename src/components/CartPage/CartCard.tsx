@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import { deleteProduct } from '../../store/slices/cart.slice';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react'
+import useFetchCart from '../../hooks/useFetchCart';
 
 interface CartCardProps {
 product:{
@@ -32,9 +31,12 @@ user:{
 }
 }
 
-const CartCard: React.FC<CartCardProps> = ({product}) => {
+const CartCard: React.FC<CartCardProps> = ({product, setDeleteApiEffect, deleteApiEffect}) => {
 
   const [quantity, setQuantity] = useState(product.quantity)
+  const [ infoApi, getApi, hasError, loading, postApi, deleteApi ] = useFetchCart()
+
+  const id = product.id
 
   const handlePlusQuantity = () => {
     let counter = quantity
@@ -47,11 +49,16 @@ const CartCard: React.FC<CartCardProps> = ({product}) => {
       setQuantity(counter -= 1)
     }
   }
-  const dispatch = useDispatch()
+
   const handleDelete = () => {
-    dispatch(deleteProduct(product))
+    deleteApi("/cart", id)
+    setDeleteApiEffect(!deleteApiEffect)
   }
 
+  useEffect(() => {
+    
+  }, [loading])
+  
   return (
     <article className='cartCard'>
       <div className='cartCard__container'>
