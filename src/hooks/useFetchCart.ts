@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState } from "react";
 import getConfigToken from "../services/getConfigToken";
 import { useNavigate } from "react-router-dom";
+import { setCartCounterSlice } from "../store/slices/cartCounter.slice";
+import { useDispatch } from "react-redux";
 
 const useFetchCart = () => {
 
@@ -39,6 +41,7 @@ const useFetchCart = () => {
     const [hasError, setHasError] = useState(false)
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const getApi = (path: string) => {
         setLoading(true)
@@ -47,6 +50,16 @@ const useFetchCart = () => {
             .then( res => {
                 setInfoApi(res.data)
                 setHasError(false)
+                console.log(res.data)
+                const info = res.data.map(product => product.quantity)
+                const counter = (productsQuantity) => {
+                    let result = 0
+                    productsQuantity.map( quantity => result += quantity)
+                    return result
+                    
+                }
+                dispatch(setCartCounterSlice(counter(info)))
+
             })
             .catch( error => {
                 setHasError(true)
