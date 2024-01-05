@@ -3,10 +3,12 @@ import cart from "./slices/cart.slice";
 import credentials from "./slices/credentials.slice";
 import logged from "./slices/logged.slice";
 import cartCounter from "./slices/cartCounter.slice";
+import cartValue from "./slices/cartValue.slice";
 
 const rootReducer = combineReducers({
     cart,
     cartCounter,
+    cartValue,
     credentials,
     logged,
     
