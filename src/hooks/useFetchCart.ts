@@ -4,6 +4,7 @@ import getConfigToken from "../services/getConfigToken";
 import { useNavigate } from "react-router-dom";
 import { setCartCounterSlice } from "../store/slices/cartCounter.slice";
 import { useDispatch } from "react-redux";
+import { setCartValueSlice } from "../store/slices/cartValue.slice";
 
 const useFetchCart = () => {
 
@@ -51,15 +52,24 @@ const useFetchCart = () => {
                 setInfoApi(res.data)
                 setHasError(false)
                 console.log(res.data)
-                const info = res.data.map(product => product.quantity)
-                const counter = (productsQuantity) => {
+                const infoQuantity = res.data.map(product => product.quantity) //Creo un arreglo con la cantidades de los elementos actual en la api
+                const counter = (productsQuantity) => { // Creo una funcion  que recibe un arreglo y suma el valor de todos sus elementos
                     let result = 0
                     productsQuantity.map( quantity => result += quantity)
                     return result
-                    
                 }
-                dispatch(setCartCounterSlice(counter(info)))
-
+                dispatch(setCartCounterSlice(counter(infoQuantity)))// Sumo todas las cantidades de los elementos del carrito
+                const infoValue = res.data.map( product => product.product.price)
+                const totalValue = (productsQuantity, productsValues) => {
+                    let result = 0
+                    for( let i = 0; i < productsValues.length; i++){
+                        let mult = productsQuantity[i] * productsValues[i]
+                        result += mult
+                    }
+                    return result
+                }
+                console.log(res.data)
+                dispatch(setCartValueSlice(totalValue(infoQuantity, infoValue)))
             })
             .catch( error => {
                 setHasError(true)
