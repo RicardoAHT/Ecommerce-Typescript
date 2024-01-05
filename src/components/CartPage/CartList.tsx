@@ -43,7 +43,7 @@ const CartList: React.FC = () => {
         getCart("/cart")
     }, [deleteApiEffect])
 
-    console.log(cart)
+    //console.log(cart)
 
     if(loading){
         return(
