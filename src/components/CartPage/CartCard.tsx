@@ -48,7 +48,7 @@ const CartCard: React.FC<CartCardProps> = ({product, setDeleteApiEffect, deleteA
   const productTotal = quantity * parseInt(product.product.price) 
   
   //console.log(id)
-  const cartCounter = useSelector((store: RootState) => store.cartCounter)
+  let cartCounter = useSelector((store: RootState) => store.cartCounter)
   const dispatch = useDispatch()
   const totalValue = useSelector((store: RootState) => store.cartValue)
 
@@ -79,18 +79,25 @@ const CartCard: React.FC<CartCardProps> = ({product, setDeleteApiEffect, deleteA
   
   return (
     <article className='cartCard'>
-      <div className='cartCard__container'>
-        <ul className='cartCard__ul'>
-          <img src={product.product.images[0].url} alt="Imagen Producto" />
-          <li className='cartCard__ul__li'>{product.product.title}</li>
-          <li className='cartCard__ul__li'>{product.product.price}</li>
-        </ul>
-        <button onClick={handleMinusQuantity}> - </button>
-          <span> {quantity} </span>
-        <button onClick={handlePlusQuantity}> + </button>
-        <button onClick={handleDelete}>Delete</button>
-        <p>Total: {productTotal}</p>
-      </div>
+        <div className='cartCard__container__img'>
+          <img className='cartCard__img' src={product.product.images[0].url} alt="Imagen Producto" />
+        </div>
+        <div className='cartCard__container'>
+          <ul className='cartCard__ul'>
+              <li className='cartCard__ul__li'>{product.product.title}</li>
+              <li className='cartCard__ul__li'>Precio: ${product.product.price}</li>
+          </ul>
+          <div className='cartCard__container__button'>
+            <span>Cantidad: </span>
+            <button onClick={handleMinusQuantity}> - </button>
+              <span> {quantity} </span>
+            <button onClick={handlePlusQuantity}> + </button>
+            <button onClick={handleDelete}>
+            <i className="fa-solid fa-trash"></i>
+            </button>
+          </div>
+            <p>Total: ${productTotal}</p>
+        </div>
     </article>
   )
 }
