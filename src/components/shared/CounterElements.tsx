@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 const CounterElements: React.FC = () => {
 
   const cartCounter = useSelector(store => store.cartCounter)
-  console.log(cartCounter)
+
   return (
     <div >
       <div className='iconContainer'>
