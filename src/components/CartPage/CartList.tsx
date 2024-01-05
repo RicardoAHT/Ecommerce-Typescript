@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import CartCard from './CartCard'
 import useFetchCart from '../../hooks/useFetchCart';
 import Loading from '../shared/Loading';
-import CartTotal from './CartTotal';
 
 interface Product {
     id: number;
