@@ -110,6 +110,21 @@ const useFetchCart = () => {
                 setLoading(false)
             })
     }
-    return { cart, getCart, hasError, loading, postApi, deleteApi} as const
+
+    const buyCart = (path: string) => {
+        //setLoading(true)
+        const url = `https://ecommercebackendbyrick.onrender.com${path}`
+        axios.post(url, {}, getConfigToken())
+            .then(response =>{
+                console.log(response.data)
+                setInfoApi( response.data )
+                })
+            .catch(error => console.log(error))
+        /*    .finally(() => {
+                setLoading(false)
+            })    */
+    }
+
+    return { cart, getCart, hasError, loading, postApi, deleteApi, buyCart} as const
 }
 export default useFetchCart
