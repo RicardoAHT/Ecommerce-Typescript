@@ -3,10 +3,10 @@ import useFetchCart from '../../hooks/useFetchCart'
 const ButtonCart: React.FC = ({product}) => {
   
   const data = { productId:product.id, quantity:1}
-  const [infoApi, getApi, hasError, loading, addProductApi] = useFetchCart()
+  const {postApi} = useFetchCart()
 
   const addProductAtCart = () => {
-    addProductApi("/cart", data)
+    postApi("/cart", data)
   }
   
 

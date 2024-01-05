@@ -16,7 +16,7 @@ const NavBar: React.FC = () => {
                 </Link>
             </li>
             {
-                !logged    // Verifico si esta logeado o no
+                !logged // Verifico si esta logeado o no
                 ?
                     <li className='appBar__ul__li'>
                         <Link to="/login">

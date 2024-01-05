@@ -9,6 +9,7 @@ import { setCartValueSlice } from "../store/slices/cartValue.slice";
 const useFetchCart = () => {
 
     interface ApiResponse{ //! Verificar
+        id: number;
         product:{
             brand: string;
             category:{
@@ -24,7 +25,7 @@ const useFetchCart = () => {
                 updateAt: string
                 url: string
             }];
-            price: number;
+            price: string;
             title: string;
             updateAt: string
         };
@@ -38,29 +39,29 @@ const useFetchCart = () => {
         }
     }
 
-    const [infoApi, setInfoApi] = useState< ApiResponse[] | undefined>(undefined)
+    const [cart, setInfoApi] = useState< ApiResponse[] | undefined>(undefined)
     const [hasError, setHasError] = useState(false)
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const getApi = (path: string) => {
+    const getCart = (path: string) => {
         setLoading(true)
         const url = `https://ecommercebackendbyrick.onrender.com${path}`
         axios.get<ApiResponse[]>(url, getConfigToken())
             .then( res => {
                 setInfoApi(res.data)
                 setHasError(false)
-                console.log(res.data)
+                //console.log(res.data)
                 const infoQuantity = res.data.map(product => product.quantity) //Creo un arreglo con la cantidades de los elementos actual en la api
-                const counter = (productsQuantity) => { // Creo una funcion  que recibe un arreglo y suma el valor de todos sus elementos
+                const counter = (productsQuantity: []) => { // Creo una funcion  que recibe un arreglo y suma el valor de todos sus elementos
                     let result = 0
                     productsQuantity.map( quantity => result += quantity)
                     return result
                 }
                 dispatch(setCartCounterSlice(counter(infoQuantity)))// Sumo todas las cantidades de los elementos del carrito
-                const infoValue = res.data.map( product => product.product.price)
-                const totalValue = (productsQuantity, productsValues) => {
+                const infoValue = res.data.map(product => product.product.price)
+                const totalValue = (productsQuantity: [], productsValues: []) => {
                     let result = 0
                     for( let i = 0; i < productsValues.length; i++){
                         let mult = productsQuantity[i] * productsValues[i]
@@ -68,7 +69,7 @@ const useFetchCart = () => {
                     }
                     return result
                 }
-                console.log(res.data)
+                //console.log(res.data)
                 dispatch(setCartValueSlice(totalValue(infoQuantity, infoValue)))
             })
             .catch( error => {
@@ -109,8 +110,6 @@ const useFetchCart = () => {
                 setLoading(false)
             })
     }
-
-
-    return [ infoApi, getApi, hasError, loading, postApi, deleteApi] as const
+    return { cart, getCart, hasError, loading, postApi, deleteApi} as const
 }
 export default useFetchCart

@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react'
 import PurchasesCard from './PurchasesCard'
-//import useFetch from '../../hooks/useFetch'
 import Loading from '../shared/Loading'
 import useFetchToken from '../../hooks/useFetchToken'
 
-interface Purchase {
+interface Purchase { // Agrego la estructura de datos
   id: number;
   productId: number;
   createdAt: string;
-  // Agrega otras propiedades del objeto Purchase según sea necesario
 }
 
 const PurchasesList: React.FC = () => {

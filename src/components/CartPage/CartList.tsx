@@ -5,6 +5,7 @@ import Loading from '../shared/Loading';
 import CartTotal from './CartTotal';
 
 interface Product {
+    id: number;
     product:{
         brand: string;
         category:{
@@ -20,7 +21,7 @@ interface Product {
             updateAt: string
             url: string
         }];
-        price: number;
+        price: string;
         title: string;
         updateAt: string
     };
@@ -36,15 +37,15 @@ interface Product {
 
 const CartList: React.FC = () => {
     
-    const [cart, getCart, hasError, loading] = useFetchCart()
+    const {cart, getCart, hasError, loading} = useFetchCart()
     const [deleteApiEffect, setDeleteApiEffect] = useState(false)
 
     useEffect(() => {
         getCart("/cart")
     }, [deleteApiEffect])
 
-    //console.log(cart)
-    
+    console.log(cart)
+
     if(loading){
         return(
             <div>
@@ -68,31 +69,8 @@ return (
                 ))
             }
         </div>
-        <CartTotal/>
     </section>
   )
 }
 
 export default CartList
-
-//import useFetchToken from '../../hooks/useFetchToken'
-//import Loading from '../shared/Loading'
-/*
-//const [cart, getCart, hasError, loading] = useFetchToken()
-useEffect(() => {
-    //getCart("/cart")
-}, [])
-        if(loading){
-            return (
-                <div>
-                    <Loading/>
-                    </div>
-                    )
-        }
-        if (hasError) {
-            return <p>Error al obtener los datos.</p>;
-        }  
-     console.log(cart)
- */
-   
-// console.log(cart)

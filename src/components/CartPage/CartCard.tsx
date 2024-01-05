@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import useFetchCart from '../../hooks/useFetchCart';
 import { setCartCounterSlice } from '../../store/slices/cartCounter.slice';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCartValueSlice } from '../../store/slices/cartValue.slice';
+import { RootState } from '../../store';
 
 interface CartCardProps {
+product:{
+id: number;
 product:{
     brand: string;
     category:{
@@ -20,34 +23,34 @@ product:{
         updateAt: string
         url: string
     }];
-    price: number;
+    price: string; //! Estar pendientes de la conversion
     title: string;
     updateAt: string
 };
 productId: number;
 quantity: number;
 user:{
-    email:"Leo";
+    email:string;
     id: number;
     firstName: string;
     lastName: string;
+}
 }
 }
 
 const CartCard: React.FC<CartCardProps> = ({product, setDeleteApiEffect, deleteApiEffect}) => {
 
   const [quantity, setQuantity] = useState(product.quantity)
-  const [ infoApi, getApi, hasError, loading, postApi, deleteApi ] = useFetchCart()
+  const { deleteApi } = useFetchCart()
 
-  const id = product.id
-  const productTotal = quantity * product.product.price
+  const id = product.product.id // Accedo al id especifico del producto iterado por el map previamente
+  //!Tambien esta el id del producto en el carrito product.id
+  const productTotal = quantity * parseInt(product.product.price) 
   
-  let cartCounter = useSelector(store => store.cartCounter)
+  //console.log(id)
+  const cartCounter = useSelector((store: RootState) => store.cartCounter)
   const dispatch = useDispatch()
-  let totalValue = useSelector(store => store.cartValue)
-  
-  
-  //dispatch(setCartValueSlice())
+  const totalValue = useSelector((store: RootState) => store.cartValue)
 
   const handlePlusQuantity = () => {
     let counter = quantity
@@ -86,7 +89,7 @@ const CartCard: React.FC<CartCardProps> = ({product, setDeleteApiEffect, deleteA
           <span> {quantity} </span>
         <button onClick={handlePlusQuantity}> + </button>
         <button onClick={handleDelete}>Delete</button>
-        <p>Total {productTotal}</p>
+        <p>Total: {productTotal}</p>
       </div>
     </article>
   )
