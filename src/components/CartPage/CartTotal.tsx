@@ -7,8 +7,11 @@ const CartTotal: React.FC = () => {
   const totalValue = useSelector((store: RootState) => store.cartValue)
 
   return (
-    <div>
-      <span>Total: ${totalValue}</span>
+    <div className='cartTotal'>
+      <div className='cartTotal__container'>
+        <hr className='cartTotal__hr' />
+        <span className='cartTotal__span'>Total: ${totalValue}</span>
+      </div>
     </div>
   )
 }
