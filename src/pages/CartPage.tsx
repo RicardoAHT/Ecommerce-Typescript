@@ -9,7 +9,6 @@ const CartPage: React.FC = () => {
     <>
       <NavBar/>
       <Header/>
-      <h2>Cart Page</h2>
       <CartList/>
       <CartTotal/>
     </>
