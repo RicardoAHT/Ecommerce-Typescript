@@ -9,7 +9,6 @@ const ButtonCart: React.FC = ({product}) => {
     postApi("/cart", data)
   }
   
-
   return (
     <div className='buttonCart'>
       <button className='buttonCart__button' onClick={addProductAtCart} >
@@ -20,19 +19,3 @@ const ButtonCart: React.FC = ({product}) => {
 }
 
 export default ButtonCart
-
-
-
-
-
-/*
-import { addProduct } from '../../store/slices/cart.slice'
-import { useDispatch } from 'react-redux'
-const handleAddCart = () => {// Agrego producto al estado global del carrito
-const dispatch = useDispatch()
-dispatch(addProduct(product)) // Agrego la informacion del producto al carrito
-
-      <button className='buttonCart__button' onClick={handleAddCart}>
-        Add +
-      </button>
-}*/
