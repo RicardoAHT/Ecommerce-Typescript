@@ -13,13 +13,16 @@ const LoginPage: React.FC = () => {
     <div>
       <NavBar/>
       <Header/>
-      {
-        registered
-        ?
-        <LoginForm/>
-        :
-        <SigninForm/>
-      }
+      <div className='formContainer'>
+        {
+          registered
+          ?
+          <SigninForm/>
+          :
+          <LoginForm/>
+        }
+
+      </div>
       <Registered
         registered = {registered}
         setRegistered = {setRegistered}
