@@ -119,9 +119,17 @@
 }
 
 /*! PurchasesPage*/
+.purchasesPage__h2{
+  text-align: center;
+  margin: 1rem;
+}
+.purchaseContainer{
+  display: flex;
+  justify-content: center;
+}
 /*? PurchasesList */
 .purchasesList{
-  background-color: aqua;
+
 }
 
 /*! CartPage */
@@ -223,7 +231,51 @@
 
 /*! LoggedPage */
 
+.formContainer{
+  display: flex;
+  justify-content: center;
+}
+
+/*? LogIn SignIn */
+
+.registerForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: aquamarine;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  gap: 1rem;
+  padding: 2rem 2.7rem 2rem .1rem;
+}
+.registerForm__h2{
+  margin-bottom: 1rem;
+}
+.registerForm__form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+.registerForm__form__div{
+  display: flex;
+  gap: .5rem;
+}
+
+.registerForm__form__label{
+  text-align: end;
+  width: 5.7rem;
+}
+
+.registerForm__form__button{
+  width: 5rem;
+}
+
 /*? Registered*/
+.registered{
+  margin-top: 2.5rem;
+  text-align: center;
+}
 .registered__span{
   font-weight: 700;
   cursor: pointer;
