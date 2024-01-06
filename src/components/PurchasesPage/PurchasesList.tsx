@@ -16,7 +16,7 @@ const PurchasesList: React.FC = () => {
   useEffect(() => {
     getPurchases("/purchases")
   }, [])
-  
+  //console.log(purchases)
   if (loading) {
     return (
       <div>
