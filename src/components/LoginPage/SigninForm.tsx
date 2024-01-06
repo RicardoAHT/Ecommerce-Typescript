@@ -18,39 +18,39 @@ const SigninForm: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>Sign in</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <label htmlFor='firstName' >Nombre: </label>
+    <section className='registerForm'>
+      <h2 className='registerForm__h2'>Sign in</h2>
+      <form className='registerForm__form' onSubmit={handleSubmit(onSubmit)}>
+          <div className='registerForm__form__div'>
+            <label className='registerForm__form__label' htmlFor='firstName' >Nombre: </label>
             <input {...register("firstName", {required:true})} type='text' id='firstName' />
             {errors.firstName && <span>This field is required</span>}
           </div>
-          <div>
-              <label htmlFor='lastName' >Apellidos: </label>
+          <div className='registerForm__form__div' >
+              <label className='registerForm__form__label' htmlFor='lastName' >Apellidos: </label>
               <input {...register("lastName", {required:true})} type='text' id='lastName' />
               {errors.lastName && <span>This field is required</span>}
           </div>
-          <div>
-            <label htmlFor='email' >E-mail address</label>
+          <div className='registerForm__form__div'>
+            <label className='registerForm__form__label' htmlFor='email' >E-mail:</label>
             <input {...register("email", {required:true})} type='text' id='email' />
             {errors.email && <span>This field is required</span>}
           </div>
-          <div>
-            <label htmlFor='password' >Password</label>
+          <div className='registerForm__form__div'>
+            <label className='registerForm__form__label' htmlFor='password' >Password:</label>
             <input {...register("password", {required:true, minLength:4})} type='password' id='password' />
             {errors.password && <span>This field is required</span>}
           </div>
-          <div>
-            <label htmlFor='phone' >Telefono</label>
+          <div className='registerForm__form__div'>
+            <label className='registerForm__form__label' htmlFor='phone' >Telefono: </label>
             <input {...register("phone", {required:true, minLength:7})} type='number' id='phone' />
             {errors.phone && <span>This field is required</span>}
           </div>
-          <button type="submit">
+          <button className='registerForm__form__button' type="submit">
             Enviar
           </button>
       </form>
-    </div>
+    </section>
   )
 }
 

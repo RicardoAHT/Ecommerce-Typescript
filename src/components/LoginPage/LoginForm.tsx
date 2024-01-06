@@ -18,20 +18,22 @@ const LoginForm: React.FC = () => {
   }
 
   return (
-    <div>
-        <h2>Login</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <label >E-mail address</label>
-                <input {...register("email")} type="email" />
-            </div>
-            <div>
-                <label >Password</label>
-                <input {...register("password")} type="password"  />
-            </div>
-            <input type="submit" />
+    <section className='registerForm'>
+        <h2 className='registerForm__h2'>Login</h2>
+        <form className='registerForm__form' onSubmit={handleSubmit(onSubmit)}>
+          <div className='registerForm__form__div'>
+            <label className='registerForm__form__label' >E-mail:</label>
+            <input {...register("email")} type="email" />
+          </div>
+          <div className='registerForm__form__div'>
+            <label className='registerForm__form__label' >Password:</label>
+            <input {...register("password")} type="password"  />
+          </div>
+          <button className='registerForm__form__button' type="submit">
+            Enviar
+          </button>
         </form>
-    </div>
+    </section>
   )
 }
 
