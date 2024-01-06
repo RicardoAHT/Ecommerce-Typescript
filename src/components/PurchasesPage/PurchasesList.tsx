@@ -4,7 +4,18 @@ import Loading from '../shared/Loading'
 import useFetchToken from '../../hooks/useFetchToken'
 
 interface Purchase { // Agrego la estructura de datos
+  product:{
+    id:number
+    title: string
+    price: string
+    images:[
+      {
+        url: string
+      }
+    ]
+  }
   id: number;
+  quantity: number
   productId: number;
   createdAt: string;
 }
@@ -32,7 +43,6 @@ const PurchasesList: React.FC = () => {
   console.log(purchases)
   return (
     <section className='purchasesList'>
-      <h2>Purchases List</h2>
       <article>
         {
           purchases?.map(purchase => (
