@@ -9,13 +9,12 @@ const LoggedPage: React.FC = () => {
     const logged = useSelector( (store: RootState) => store.logged)
 
     if(!logged){
-        return(
-            <div>
-                <LoginPage/>
-            </div>
-        )
+      return(
+        <div>
+          <LoginPage/>
+        </div>
+      )
     }
-
 
   return (
     <div>
