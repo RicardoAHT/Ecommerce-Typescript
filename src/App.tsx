@@ -25,7 +25,6 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <h2>App</h2>
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/login' element={<LoggedPage/>}/>
