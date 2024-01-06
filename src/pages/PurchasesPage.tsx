@@ -8,8 +8,10 @@ const PurchasesPage: React.FC = () => {
     <div>
       <NavBar/>
       <Header/>
-      <h2>Purchases</h2>
-      <PurchasesList/>
+      <h2 className='purchasesPage__h2'>Tu historial de compras:</h2>
+      <div className='purchaseContainer'>
+        <PurchasesList/>
+      </div>
     </div>
   )
 }
