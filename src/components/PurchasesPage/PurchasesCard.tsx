@@ -12,6 +12,7 @@ interface Purchase {
     ]
   }
   id: number;
+  quantity: number
   productId: number;
   createdAt: string;
 }
@@ -41,12 +42,12 @@ const PurchasesCard: React.FC<{ purchase: Purchase }> = ({purchase}) => {
             }
           </li>
           <li>Quantity: 
-            {purchase.productId}</li>
+            {purchase.quantity}</li>
           <li>Price: 
             {
               (product === null)
                 ? "---"
-                : product.price
+                : purchase.quantity * parseInt(product.price)
             }
 
           </li>
