@@ -112,17 +112,17 @@ const useFetchCart = () => {
     }
 
     const buyCart = (path: string) => {
-        //setLoading(true)
+        setLoading(true)
         const url = `https://ecommercebackendbyrick.onrender.com${path}`
         axios.post(url, {}, getConfigToken())
             .then(response =>{
-                console.log(response.data)
+                //console.log(response.data)
                 setInfoApi( response.data )
                 })
             .catch(error => console.log(error))
-        /*    .finally(() => {
+            .finally(() => {
                 setLoading(false)
-            })    */
+            })    
     }
 
     return { cart, getCart, hasError, loading, postApi, deleteApi, buyCart} as const
