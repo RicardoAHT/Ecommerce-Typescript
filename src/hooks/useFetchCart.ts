@@ -103,7 +103,7 @@ const useFetchCart = () => {
         axios.delete(url, getConfigToken())
             .then(response => {
                 //console.log(response.data)
-                setInfoApi(response.data)
+                setInfoApi(cart?.filter(product => product.id !== id))
             })
             .catch(error => console.log(error))
             .finally(() => {
@@ -125,6 +125,13 @@ const useFetchCart = () => {
             })    
     }
 
-    return { cart, getCart, hasError, loading, postApi, deleteApi, buyCart} as const
+    const updateCartQuantity = (path:string, id:number, data) => {
+        const url = `https://ecommercebackendbyrick.onrender.com${path}/${id}/`
+        axios.put(url, data, getConfigToken())
+            .then(reponse => reponse.data)
+            .catch(error => console.log(error))
+    }
+
+    return { cart, getCart, hasError, loading, postApi, deleteApi, buyCart, updateCartQuantity} as const
 }
 export default useFetchCart
