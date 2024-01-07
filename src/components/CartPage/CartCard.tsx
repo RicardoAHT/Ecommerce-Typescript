@@ -41,10 +41,9 @@ user:{
 const CartCard: React.FC<CartCardProps> = ({product, setDeleteApiEffect, deleteApiEffect}) => {
 
   const [quantity, setQuantity] = useState(product.quantity)
-  const { deleteApi } = useFetchCart()
+  const { deleteApi, updateCartQuantity } = useFetchCart()
 
-  const id = product.product.id // Accedo al id especifico del producto iterado por el map previamente
-  //!Tambien esta el id del producto en el carrito product.id
+  const id = product.id // Accedo al id especifico del producto iterado por el map previamente
   const productTotal = quantity * parseInt(product.product.price) 
   
   //console.log(id)
@@ -59,6 +58,7 @@ const CartCard: React.FC<CartCardProps> = ({product, setDeleteApiEffect, deleteA
     dispatch(setCartCounterSlice(cartCounter))
     let value = totalValue + parseInt(product.product.price)
     dispatch(setCartValueSlice(value))
+    updateCartQuantity("/cart", id, {quantity:counter})
   }
 
   const handleMinusQuantity = () => {
@@ -69,6 +69,7 @@ const CartCard: React.FC<CartCardProps> = ({product, setDeleteApiEffect, deleteA
       dispatch(setCartCounterSlice(cartCounter))
       let value = totalValue - parseInt(product.product.price)
       dispatch(setCartValueSlice(value))
+      updateCartQuantity("/cart", id, {quantity:counter})
     }
   }
 
