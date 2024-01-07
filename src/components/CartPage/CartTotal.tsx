@@ -16,7 +16,7 @@ const CartTotal: React.FC = () => {
     <div className='cartTotal'>
       <div className='cartTotal__container'>
         <hr className='cartTotal__hr' />
-        <span className='cartTotal__span'>Total: ${totalValue}</span>
+        <span className='cartTotal__span'>Total: ${totalValue} </span>
         <button onClick={handleBuy}>Buy</button>
       </div>
     </div>
