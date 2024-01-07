@@ -28,6 +28,7 @@
 /*! HomePage*/
 .homepage__Container{
   display: flex;
+  justify-content: center;
   gap: 1rem;
 }
 
