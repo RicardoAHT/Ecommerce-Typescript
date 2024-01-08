@@ -1,5 +1,7 @@
 import React from 'react'
 import ButtonCart from './ButtonCart'
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 interface Products {
   brand: string;
@@ -25,9 +27,14 @@ interface ProductCardProps {
   product: Products;
 }
 
+
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  return (
-    <article className='productCard'>
+  
+  const priceFilter = useSelector((store: RootState) => store.priceFilter)
+  
+  if(product.price >= priceFilter[0] && product.price <= priceFilter[1]){
+    return (
+      <article className='productCard'>
         <div className='productCard__container'>
           <img className='productCard__container__img'  src={product.images[0].url} alt="Producto" />
         </div>
@@ -40,9 +47,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </ul>
         <ButtonCart
           product={product} // Envio la informacion de cada producto
-        />
+          />
     </article>
   )
+}
 }
 
 export default ProductCard
