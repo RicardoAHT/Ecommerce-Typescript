@@ -10,6 +10,7 @@ import { RootState } from '../../store'
 const ProductList: React.FC = () => {
 
     const search = useSelector((store: RootState) => store.search)
+    const priceFilter = useSelector((store: RootState) => store.priceFilter)
 
     const url = `https://ecommercebackendbyrick.onrender.com/products${search}`
     const url2 = `https://ecommercebackendbyrick.onrender.com/products?title=${""}`
@@ -17,7 +18,7 @@ const ProductList: React.FC = () => {
   
     useEffect(() => {
       getProducts()
-    }, [search])
+    }, [search, priceFilter])
     //console.log(products)
 
     if (loading) {
@@ -31,9 +32,8 @@ const ProductList: React.FC = () => {
     if (hasError) {
       return <p>Error al obtener los datos.</p>;
     }
-  
-  return (
-    <>
+    return (
+      <>
       <div className='homepage__Container'>
         <FilterByPrice
         />
