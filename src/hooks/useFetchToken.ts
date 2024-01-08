@@ -41,19 +41,6 @@ const useFetchToken = () => {
                 setLoading(false)
             })      
     }
-/*
-    const postApi = (path: string) => {
-        setLoading(true)
-        const url = `https://ecommercebackendbyrick.onrender.com${path}`
-        axios.post(url, data, getConfigToken())
-            .then(response =>{
-                console.log(response.data)
-                setInfoApi([...playList, response.data.info])
-                dispatch(setTracksSlice([]))
-                })
-            .catch(error => console.log(error))
-    }
-*/
 
     return [ infoApi, getApi, hasError, loading] as const
 }
