@@ -5,21 +5,23 @@ import logged from "./slices/logged.slice";
 import cartCounter from "./slices/cartCounter.slice";
 import cartValue from "./slices/cartValue.slice";
 import search from "./slices/search.slice";
+import priceFilter from "./slices/priceFilter.slice";
 
 const rootReducer = combineReducers({
-    cart,
-    cartCounter,
-    cartValue,
-    credentials,
-    logged,
-    search,
-  });
+  cart,
+  cartCounter,
+  cartValue,
+  credentials,
+  logged,
+  search,
+  priceFilter
+});
   
-  export type RootState = ReturnType<typeof rootReducer>;
+export type RootState = ReturnType<typeof rootReducer>;
   
-  const store = configureStore({
-    reducer: rootReducer,
-  });
+const store = configureStore({
+  reducer: rootReducer,
+});
   
 export default store;
 
