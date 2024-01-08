@@ -4,6 +4,7 @@ import credentials from "./slices/credentials.slice";
 import logged from "./slices/logged.slice";
 import cartCounter from "./slices/cartCounter.slice";
 import cartValue from "./slices/cartValue.slice";
+import search from "./slices/search.slice";
 
 const rootReducer = combineReducers({
     cart,
@@ -11,7 +12,7 @@ const rootReducer = combineReducers({
     cartValue,
     credentials,
     logged,
-    
+    search,
   });
   
   export type RootState = ReturnType<typeof rootReducer>;
