@@ -12,7 +12,7 @@ const NavBar: React.FC = () => {
         <ul className='appBar__ul'>
             <li className='appBar__ul__li'>
                 <Link to="/">
-                Home
+                    Productos
                 </Link>
             </li>
             {
@@ -20,19 +20,19 @@ const NavBar: React.FC = () => {
                 ?
                     <li className='appBar__ul__li'>
                         <Link to="/login">
-                            LogIn
+                            Registro
                         </Link>
                     </li>
                 :
                     <li className='appBar__ul__li'>
                         <Link to="/logOut">
-                            LogOut
+                            Cerrar Sesion
                         </Link>
                     </li>
             }
             <li className='appBar__ul__li'>
                 <Link to="/purchases/:id">
-                    Purchases
+                    Historial
                 </Link>
             </li>
         </ul>

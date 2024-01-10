@@ -23,11 +23,11 @@ const LoginForm: React.FC = () => {
         <form className='registerForm__form' onSubmit={handleSubmit(onSubmit)}>
           <div className='registerForm__form__div'>
             <label className='registerForm__form__label' >E-mail:</label>
-            <input {...register("email")} type="email" />
+            <input className='registerForm__form__input' {...register("email")} type="email" />
           </div>
           <div className='registerForm__form__div'>
             <label className='registerForm__form__label' >Password:</label>
-            <input {...register("password")} type="password"  />
+            <input className='registerForm__form__input' {...register("password")} type="password"  />
           </div>
           <button className='registerForm__form__button' type="submit">
             Enviar

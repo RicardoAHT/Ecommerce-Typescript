@@ -23,27 +23,27 @@ const SigninForm: React.FC = () => {
       <form className='registerForm__form' onSubmit={handleSubmit(onSubmit)}>
           <div className='registerForm__form__div'>
             <label className='registerForm__form__label' htmlFor='firstName' >Nombre: </label>
-            <input {...register("firstName", {required:true})} type='text' id='firstName' />
+            <input className='registerForm__form__input' {...register("firstName", {required:true})} type='text' id='firstName' />
             {errors.firstName && <span>This field is required</span>}
           </div>
           <div className='registerForm__form__div' >
               <label className='registerForm__form__label' htmlFor='lastName' >Apellidos: </label>
-              <input {...register("lastName", {required:true})} type='text' id='lastName' />
+              <input className='registerForm__form__input' {...register("lastName", {required:true})} type='text' id='lastName' />
               {errors.lastName && <span>This field is required</span>}
           </div>
           <div className='registerForm__form__div'>
             <label className='registerForm__form__label' htmlFor='email' >E-mail:</label>
-            <input {...register("email", {required:true})} type='text' id='email' />
+            <input className='registerForm__form__input' {...register("email", {required:true})} type='text' id='email' />
             {errors.email && <span>This field is required</span>}
           </div>
           <div className='registerForm__form__div'>
             <label className='registerForm__form__label' htmlFor='password' >Password:</label>
-            <input {...register("password", {required:true, minLength:4})} type='password' id='password' />
+            <input className='registerForm__form__input' {...register("password", {required:true, minLength:4})} type='password' id='password' />
             {errors.password && <span>This field is required</span>}
           </div>
           <div className='registerForm__form__div'>
             <label className='registerForm__form__label' htmlFor='phone' >Telefono: </label>
-            <input {...register("phone", {required:true, minLength:7})} type='number' id='phone' />
+            <input className='registerForm__form__input' {...register("phone", {required:true, minLength:7})} type='number' id='phone' />
             {errors.phone && <span>This field is required</span>}
           </div>
           <button className='registerForm__form__button' type="submit">
