@@ -25,11 +25,11 @@ const FilterCategory: React.FC = () => {
   }
 
   return (
-    <div className='filterByCategory'>
-      <h3>Filter Category</h3>
-      <form onChange={handleCategory} >
-        <select name="" id="">
-          <option value="">all</option>
+    <div className='filter'>
+      <h3 className='filter__h3'>Filtra por Categoria</h3>
+      <form className='filter__form' onChange={handleCategory} >
+        <select className='filter__select' name="" id="">
+          <option value="">Todas las categorias</option>
           {
             categories?.map(category => (
               <option 

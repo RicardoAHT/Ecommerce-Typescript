@@ -13,11 +13,18 @@ const FilterByTittle: React.FC = () => {
     }
 
   return (
-    <div>
-      <form onSubmit={handleFilterText}>
-        <div>
-          <input type="text" name="" ref={inputSearch} id="" />
-          <button>Search</button>
+    <div >
+      <form className='filter__form' onSubmit={handleFilterText}>
+        <div className='filter__form__container'>
+          <input 
+            className='filter__form__div__inputTittle'
+            type="text" 
+            name="" 
+            ref={inputSearch} 
+            id=""
+            placeholder='Que estas buscando?' 
+          />
+          <button className='filter__button'>Buscar</button>
         </div>
       </form>
     </div>

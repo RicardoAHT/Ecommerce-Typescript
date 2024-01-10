@@ -10,9 +10,11 @@ const ButtonCart: React.FC = ({product}) => {
   }
   
   return (
-    <div className='buttonCart'>
-      <button className='buttonCart__button' onClick={addProductAtCart} >
-        Add +
+    <div className='buttonCart__container'>
+      <button className='buttonCart' onClick={addProductAtCart} >
+        <div className="buttonCart__div">
+          Agrega al carrito
+        </div>
       </button>
     </div>
   )

@@ -17,32 +17,28 @@ const FilterByPrice: React.FC = () => {
   }
   
   return (
-    <div className='filterByPrice'>
-      <h3 className='filterByPrice__h3'>Filter Price</h3>
-      <form className='filterByPrice__form' onSubmit={handleFilterPrice}>
-        <div className='filterByPrice__form__container'>
-          <div className='filterByPrice__form__div'>
-              <label className='filterByPrice__form__div__label'  >
-                Price from
-              </label>
+    <div className='filter'>
+      <h3 className='filter__h3'>Filtra por Precio</h3>
+      <form className='filter__form' onSubmit={handleFilterPrice}>
+        <div className='filter__form__container'>
+          <div className='filter__form__div'>
               <input 
-                className='filterByPrice__form__div__input' 
+                className='filter__form__div__input' 
                 type="number" 
                 ref={from}
+                placeholder='Desde'
               />
           </div>
-          <div className='filterByPrice__form__div'>
-              <label className='filterByPrice__form__div__label'>  
-                Price to
-              </label>
+          <div className='filter__form__div'>
               <input 
-                className='filterByPrice__form__div__input' 
+                className='filter__form__div__input' 
                 type="number"
                 ref={to} 
+                placeholder='Hasta'
               />
           </div>
         </div>
-        <button>Search</button>
+        <button className='filter__button'>Buscar</button>
       </form>
     </div>
   )
