@@ -38,16 +38,46 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className='productCard__container'>
           <img className='productCard__container__img'  src={product.images[0].url} alt="Producto" />
         </div>
-        <h3 className='productCard__h3'>{product.title}</h3>
-        <ul className='productCard__ul'>
-            <li className='productCard__ul__li'>Marca: {product.brand}</li>
-            <li className='productCard__ul__li'>Categoria: {product.category.name}</li>
-            <li className='productCard__ul__li'>Descripcion: {product.description}</li>
-            <li className='productCard__ul__li'>Precio: {product.price}</li>
-        </ul>
-        <ButtonCart
-          product={product} // Envio la informacion de cada producto
-          />
+        <div className='productCard__container__info'>
+          <h3 className='productCard__h3'>{product.title}</h3>
+          <ul className='productCard__ul'>
+              <li className='productCard__ul__li'>
+                <span className="productCard__ul__li__span">
+                  Marca:{" "} 
+                </span>
+                <span>
+                  {product.brand}
+                </span>
+              </li>
+              <li className='productCard__ul__li'>
+                <span className="productCard__ul__li__span">
+                  Categoria:{" "} 
+                </span>
+                <span>
+                  {product.category.name}
+                </span>
+              </li>
+              <li className='productCard__ul__li'>
+                <span className="productCard__ul__li__span">
+                  Descripcion: {" "} 
+                </span>
+                <span>
+                  {product.description}
+                </span>
+              </li>
+              <li className='productCard__ul__li'>
+                <span className="productCard__ul__li__span">
+                  Precio: {" "} 
+                </span>
+                <span>
+                  {product.price}
+                </span>
+              </li>
+          </ul>
+          <ButtonCart
+            product={product} // Envio la informacion de cada producto
+            />
+        </div>
     </article>
   )
 }
