@@ -34,14 +34,13 @@ interface Product {
     }
   };
 
-const CartList: React.FC = () => {
+const CartList: React.FC = ({cartRefresh, setCartRefresh}) => {
     
     const {cart, getCart, hasError, loading} = useFetchCart()
-    const [deleteApiEffect, setDeleteApiEffect] = useState(false)
 
     useEffect(() => {
         getCart("/cart")
-    }, [deleteApiEffect])
+    }, [cartRefresh])
 
     //console.log(cart)
 
@@ -62,8 +61,8 @@ return (
                     <CartCard
                         key={product.id}
                         product={product as Product}
-                        setDeleteApiEffect={setDeleteApiEffect}
-                        deleteApiEffect={deleteApiEffect}
+                        setCartRefresh={setCartRefresh}
+                        cartRefresh={cartRefresh}
                     />
                 ))
             }

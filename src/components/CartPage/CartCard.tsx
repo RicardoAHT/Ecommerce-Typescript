@@ -38,7 +38,7 @@ user:{
 }
 }
 
-const CartCard: React.FC<CartCardProps> = ({product, setDeleteApiEffect, deleteApiEffect}) => {
+const CartCard: React.FC<CartCardProps> = ({product, setCartRefresh, cartRefresh}) => {
 
   const [quantity, setQuantity] = useState(product.quantity)
   const { deleteApi, updateCartQuantity } = useFetchCart()
@@ -75,7 +75,7 @@ const CartCard: React.FC<CartCardProps> = ({product, setDeleteApiEffect, deleteA
 
   const handleDelete = () => {
     deleteApi("/cart", id)
-    setDeleteApiEffect(!deleteApiEffect)
+    setCartRefresh(!cartRefresh)
   }
   
   return (
@@ -90,10 +90,10 @@ const CartCard: React.FC<CartCardProps> = ({product, setDeleteApiEffect, deleteA
           </ul>
           <div className='cartCard__container__button'>
             <span>Cantidad: </span>
-            <button onClick={handleMinusQuantity}> - </button>
+            <button className='CartCard__button' onClick={handleMinusQuantity}> - </button>
               <span> {quantity} </span>
-            <button onClick={handlePlusQuantity}> + </button>
-            <button onClick={handleDelete}>
+            <button className='CartCard__button' onClick={handlePlusQuantity}> + </button>
+            <button className='CartCard__button' onClick={handleDelete}>
             <i className="fa-solid fa-trash"></i>
             </button>
           </div>
