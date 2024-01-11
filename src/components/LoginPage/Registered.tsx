@@ -1,9 +1,14 @@
 import React from 'react'
 
-const Registered: React.FC = ({ registered, setRegistered}) => {
+interface RegisteredProps {
+  registered: boolean;
+  setRegistered: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Registered: React.FC<RegisteredProps> = ({ registered, setRegistered}) => {
 
     const handleRegistered = () =>{
-        setRegistered(!registered)
+      setRegistered(!registered)
     }
     
 

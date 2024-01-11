@@ -12,6 +12,7 @@ export const cartSlice = createSlice({
     name: "cart",
     initialState: [] as Products[],
     reducers: {
+        // @ts-ignore
         setCartSlice: (state, action: PayloadAction<Products[]>) => action.payload, //Defino el setter
         addProduct: (state, action: PayloadAction<Products>) => { 
             if(state.findIndex(product => product.id === action.payload.id) === -1){

@@ -6,13 +6,17 @@ const useFetch = (url:string) => {
     interface ApiResponse{
         brand: string;
         category:{
+            createdAt: string
             id: number
             name:string
             updateAt: string
           };
+        categoryId: number
+        createdAt: string
         description: string;
         id: number
         images: [{
+            createdAt: string
             id: number
             productId: number
             updateAt: string
@@ -22,16 +26,6 @@ const useFetch = (url:string) => {
         title: string;
         updateAt: string
     }
-
-   /* interface Product {
-        brand: string;
-        category:{}
-        description: string;
-        id: number;
-        price: string;
-        title: string;
-        // Aqui se colocan los campos que se traen de la respuesta de la API
-      }*/
 
     const [infoApi, setInfoApi] = useState< ApiResponse[] | undefined>(undefined)
     const [hasError, setHasError] = useState(false)
@@ -52,6 +46,7 @@ const useFetch = (url:string) => {
                 setLoading(false)
             })      
     }
+
     return [ infoApi, getApi, hasError, loading] as const
 }
 export default useFetch

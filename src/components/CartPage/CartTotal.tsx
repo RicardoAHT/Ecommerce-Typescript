@@ -3,7 +3,12 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../store'
 import useFetchCart from '../../hooks/useFetchCart'
 
-const CartTotal: React.FC = ({cartRefresh, setCartRefresh}) => {
+interface CartTotalProps {
+  setCartRefresh: React.Dispatch<React.SetStateAction<boolean>>;
+  cartRefresh: boolean;
+}
+
+const CartTotal: React.FC<CartTotalProps> = ({cartRefresh, setCartRefresh}) => {
 
   const {buyCart} = useFetchCart()
   const totalValue = useSelector((store: RootState) => store.cartValue)

@@ -19,6 +19,7 @@ const useFetchToken = () => {
           quantity: number
           productId: number;
           createdAt: string;
+          name: string; //! Category
     }
 
     const [infoApi, setInfoApi] = useState< ApiResponse[] | undefined>(undefined)

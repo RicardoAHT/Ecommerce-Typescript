@@ -7,35 +7,37 @@ import { RootState } from '../../store';
 
 interface CartCardProps {
 product:{
-id: number;
-product:{
+  id: number;
+  product:{
     brand: string;
     category:{
-        id: number
-        name:string
-        updateAt: string
+      id: number
+      name:string
+      updateAt: string
     };
     description: string;
     id: number
     images: [{
-        id: number
-        productId: number
-        updateAt: string
-        url: string
+      id: number
+      productId: number
+      updateAt: string
+      url: string
     }];
-    price: string; //! Estar pendientes de la conversion
+    price: string;
     title: string;
     updateAt: string
-};
-productId: number;
-quantity: number;
-user:{
+  };
+  productId: number;
+  quantity: number;
+  user:{
     email:string;
     id: number;
     firstName: string;
     lastName: string;
+  }
 }
-}
+setCartRefresh: React.Dispatch<React.SetStateAction<boolean>>;
+cartRefresh: boolean;
 }
 
 const CartCard: React.FC<CartCardProps> = ({product, setCartRefresh, cartRefresh}) => {
@@ -55,8 +57,10 @@ const CartCard: React.FC<CartCardProps> = ({product, setCartRefresh, cartRefresh
     let counter = quantity
     setQuantity(counter += 1)
     cartCounter += 1
+    // @ts-ignore
     dispatch(setCartCounterSlice(cartCounter))
     let value = totalValue + parseInt(product.product.price)
+    // @ts-ignore
     dispatch(setCartValueSlice(value))
     updateCartQuantity("/cart", id, {quantity:counter})
   }
@@ -66,8 +70,10 @@ const CartCard: React.FC<CartCardProps> = ({product, setCartRefresh, cartRefresh
     if(counter > 1){
       setQuantity(counter -= 1)
       cartCounter -= 1
+      // @ts-ignore
       dispatch(setCartCounterSlice(cartCounter))
       let value = totalValue - parseInt(product.product.price)
+      // @ts-ignore
       dispatch(setCartValueSlice(value))
       updateCartQuantity("/cart", id, {quantity:counter})
     }

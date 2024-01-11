@@ -4,13 +4,6 @@ import { setSearchSlice } from '../../store/slices/search.slice';
 import { useDispatch } from 'react-redux';
 import FilterByTittle from './FilterByTittle';
 
-interface Category{
-  createdAt: string;
-  id: number;
-  name: string;
-  updateAt: string;
-}
-
 const FilterCategory: React.FC = () => {
 
   const [categories, getCategories] = useFetchToken()
@@ -18,17 +11,17 @@ const FilterCategory: React.FC = () => {
   useEffect(() => {
     getCategories("/categories")
   }, [])
-  //console.log(categories)
 
-  const handleCategory = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleCategory = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    // @ts-ignore
     dispatch(setSearchSlice(`?categoryId=${event.target.value}`))
   }
 
   return (
     <div className='filter'>
       <h3 className='filter__h3'>Filtra por Categoria</h3>
-      <form className='filter__form' onChange={handleCategory} >
-        <select className='filter__select' name="" id="">
+      <form className='filter__form'  >
+        <select className='filter__select' onChange={handleCategory} name="" id="">
           <option value="">Todas las categorias</option>
           {
             categories?.map(category => (

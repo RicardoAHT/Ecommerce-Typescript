@@ -13,13 +13,11 @@ const ProductList: React.FC = () => {
     const priceFilter = useSelector((store: RootState) => store.priceFilter)
 
     const url = `https://ecommercebackendbyrick.onrender.com/products${search}`
-    const url2 = `https://ecommercebackendbyrick.onrender.com/products?title=${""}`
     const [products, getProducts, hasError, loading] = useFetch(url)
   
     useEffect(() => {
       getProducts()
     }, [search, priceFilter])
-    //console.log(products)
 
     if (loading) {
       return (
@@ -32,14 +30,13 @@ const ProductList: React.FC = () => {
     if (hasError) {
       return <p>Error al obtener los datos.</p>;
     }
+
     return (
       <>
       <div className='homepage__Container'>
         <FilterByPrice
         />
-        <FilterCategory
-          products={products}
-        />
+        <FilterCategory/>
       </div>
       <section className='productList'>
         {

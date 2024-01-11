@@ -4,7 +4,8 @@ export const searchSlice = createSlice({
     name: "search",
     initialState: "",
     reducers:{
-        setSearchSlice: (state, action) => action.payload
+        // @ts-ignore
+        setSearchSlice: (state, action: PayloadAction) => action.payload
     }
 
 })

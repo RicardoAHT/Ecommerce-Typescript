@@ -5,6 +5,7 @@ import LoginForm from '../components/LoginPage/LoginForm'
 import SigninForm from '../components/LoginPage/SigninForm'
 import Registered from '../components/LoginPage/Registered'
 
+
 const LoginPage: React.FC = () => {
 
   const [registered, setRegistered] = useState(false)

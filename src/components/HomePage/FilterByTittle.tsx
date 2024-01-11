@@ -4,12 +4,13 @@ import { setSearchSlice } from '../../store/slices/search.slice'
 
 const FilterByTittle: React.FC = () => {
 
-    const inputSearch = useRef()
+    const inputSearch = useRef<HTMLInputElement>(null)
     const dispatch = useDispatch()
 
     const handleFilterText = (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault()
-      dispatch(setSearchSlice(`?title=${inputSearch.current.value}`))
+      // @ts-ignore
+      dispatch(setSearchSlice(`?title=${inputSearch.current?.value || ""}`))
     }
 
   return (

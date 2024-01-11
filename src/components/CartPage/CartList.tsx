@@ -1,40 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import CartCard from './CartCard'
 import useFetchCart from '../../hooks/useFetchCart';
 import Loading from '../shared/Loading';
 
-interface Product {
-    id: number;
-    product:{
-        brand: string;
-        category:{
-            id: number
-            name:string
-            updateAt: string
-        };
-        description: string;
-        id: number
-        images: [{
-            id: number
-            productId: number
-            updateAt: string
-            url: string
-        }];
-        price: string;
-        title: string;
-        updateAt: string
-    };
-    productId: number;
-    quantity: number;
-    user:{
-        email:string;
-        id: number;
-        firstName: string;
-        lastName: string;
-    }
-  };
 
-const CartList: React.FC = ({cartRefresh, setCartRefresh}) => {
+interface CartPageProps{
+    setCartRefresh: React.Dispatch<React.SetStateAction<boolean>>;
+    cartRefresh: boolean;
+}
+  
+
+const CartList: React.FC< CartPageProps> = ({cartRefresh, setCartRefresh}) => {
     
     const {cart, getCart, hasError, loading} = useFetchCart()
 
@@ -52,6 +28,10 @@ const CartList: React.FC = ({cartRefresh, setCartRefresh}) => {
         )
     }
 
+    if (hasError) {
+        return <p>Error al obtener los datos.</p>;
+    }
+
 return (
     <section className='carList'>
         <h3 className='cartList__h3'>Cart List</h3>
@@ -60,7 +40,7 @@ return (
                 cart?.map( product => (
                     <CartCard
                         key={product.id}
-                        product={product as Product}
+                        product={product}
                         setCartRefresh={setCartRefresh}
                         cartRefresh={cartRefresh}
                     />

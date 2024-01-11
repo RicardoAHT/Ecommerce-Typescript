@@ -5,7 +5,8 @@ import CartList from '../components/CartPage/CartList'
 import CartTotal from '../components/CartPage/CartTotal'
 
 const CartPage: React.FC = () => {
-  const [cartRefresh, setCartRefresh] = useState(false)
+
+  const [cartRefresh, setCartRefresh]= useState(false)
 
   return (
     <>

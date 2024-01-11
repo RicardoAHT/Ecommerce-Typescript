@@ -4,7 +4,8 @@ export const priceFilterSlice = createSlice({
     name: "priceFilter",
     initialState: [0 , Infinity],
     reducers:{
-        setPriceFilterSlice: (state, action) => action.payload
+        // @ts-ignore
+        setPriceFilterSlice: (state, action: PayloadAction) => action.payload
     }
 })
 

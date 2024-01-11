@@ -8,35 +8,39 @@ import { setCartValueSlice } from "../store/slices/cartValue.slice";
 
 const useFetchCart = () => {
 
-    interface ApiResponse{ //! Verificar
+    interface Category {
         id: number;
-        product:{
-            brand: string;
-            category:{
-                id: number
-                name:string
-                updateAt: string
-            };
-            description: string;
-            id: number
-            images: [{
-                id: number
-                productId: number
-                updateAt: string
-                url: string
-            }];
-            price: string;
-            title: string;
-            updateAt: string
-        };
+        name: string;
+        updateAt: string;
+    }
+    interface Image {
+        id: number;
+        productId: number;
+        updateAt: string;
+        url: string;
+    }
+    interface Product {
+        brand: string;
+        category: Category;
+        description: string;
+        id: number;
+        images: [Image];
+        price: string;
+        title: string;
+        updateAt: string;
+    }
+    interface User {
+        email: string;
+        id: number;
+        firstName: string;
+        lastName: string;
+    }
+    interface ApiResponse {
+        id: number;
+        product: Product;
         productId: number;
         quantity: number;
-        user:{
-            email:"Leo";
-            id: number;
-            firstName: string;
-            lastName: string;
-        }
+        user: User;
     }
 
     const [cart, setInfoApi] = useState< ApiResponse[] | undefined>(undefined)
@@ -52,16 +56,16 @@ const useFetchCart = () => {
             .then( res => {
                 setInfoApi(res.data)
                 setHasError(false)
-                //console.log(res.data)
                 const infoQuantity = res.data.map(product => product.quantity) //Creo un arreglo con la cantidades de los elementos actual en la api
-                const counter = (productsQuantity: []) => { // Creo una funcion  que recibe un arreglo y suma el valor de todos sus elementos
+                const counter = (productsQuantity: number[]) => { // Creo una funcion  que recibe un arreglo y suma el valor de todos sus elementos
                     let result = 0
                     productsQuantity.map( quantity => result += quantity)
                     return result
                 }
+                // @ts-ignore
                 dispatch(setCartCounterSlice(counter(infoQuantity)))// Sumo todas las cantidades de los elementos del carrito
-                const infoValue = res.data.map(product => product.product.price)
-                const totalValue = (productsQuantity: [], productsValues: []) => {
+                const infoValue = res.data.map(product => parseFloat(product.product.price))
+                const totalValue = (productsQuantity: number[], productsValues: number[]) => {
                     let result = 0
                     for( let i = 0; i < productsValues.length; i++){
                         let mult = productsQuantity[i] * productsValues[i]
@@ -69,7 +73,7 @@ const useFetchCart = () => {
                     }
                     return result
                 }
-                //console.log(res.data)
+                 // @ts-ignore
                 dispatch(setCartValueSlice(totalValue(infoQuantity, infoValue)))
             })
             .catch( error => {
@@ -87,9 +91,7 @@ const useFetchCart = () => {
         const url = `https://ecommercebackendbyrick.onrender.com${path}`
         axios.post(url, data, getConfigToken())
             .then(response =>{
-                //console.log(response.data)
                 setInfoApi( response.data )
-                // setInfoApi([...playList, response.data.info])
                 })
             .catch(error => console.log(error))
             .finally(() => {
@@ -101,8 +103,8 @@ const useFetchCart = () => {
         setLoading(true)
         const url = `https://ecommercebackendbyrick.onrender.com${path}/${id}`
         axios.delete(url, getConfigToken())
+            // @ts-ignore
             .then(response => {
-                //console.log(response.data)
                 setInfoApi(cart?.filter(product => product.id !== id))
             })
             .catch(error => console.log(error))
@@ -116,7 +118,6 @@ const useFetchCart = () => {
         const url = `https://ecommercebackendbyrick.onrender.com${path}`
         axios.post(url, {}, getConfigToken())
             .then(response =>{
-                //console.log(response.data)
                 setInfoApi( response.data )
                 })
             .catch(error => console.log(error))
@@ -125,7 +126,7 @@ const useFetchCart = () => {
             })    
     }
 
-    const updateCartQuantity = (path:string, id:number, data) => {
+    const updateCartQuantity = (path:string, id:number, data:{}) => {
         const url = `https://ecommercebackendbyrick.onrender.com${path}/${id}/`
         axios.put(url, data, getConfigToken())
             .then(reponse => reponse.data)

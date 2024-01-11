@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import PurchasesPage from './pages/PurchasesPage'
-import LoginPage from './pages/LoginPage'
 import LogOutPage from './pages/LogOutPage'
 import CartPage from './pages/CartPage'
 import { useDispatch } from 'react-redux'
@@ -19,6 +18,7 @@ const App: React.FC = () => {
     const name = localStorage.getItem("name")
     const email = localStorage.getItem("email")
     const obj = { token, name, email}
+    // @ts-ignore
     dispatch(setCredentialsSlice(obj))
   }, [])
   

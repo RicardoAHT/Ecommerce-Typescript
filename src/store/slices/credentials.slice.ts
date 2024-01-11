@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface CredentialsState {
     name: string;
@@ -10,7 +10,8 @@ export const credentialsSlice = createSlice({
     name: "credentials",
     initialState: null as CredentialsState | null,
     reducers:{
-        setCredentialsSlice: (state, action) => action.payload
+        // @ts-ignore
+        setCredentialsSlice: (state, action: PayloadAction) => action.payload
     }
 })
 

@@ -6,13 +6,17 @@ import { RootState } from '../../store';
 interface Products {
   brand: string;
   category:{
+      createdAt: string
       id: number
       name:string
       updateAt: string
     };
+  categoryId: number
+  createdAt: string
   description: string;
   id: number
   images: [{
+      createdAt: string
       id: number
       productId: number
       updateAt: string
@@ -29,10 +33,9 @@ interface ProductCardProps {
 
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  
   const priceFilter = useSelector((store: RootState) => store.priceFilter)
-  
   if(product.price >= priceFilter[0] && product.price <= priceFilter[1]){
+    
     return (
       <article className='productCard'>
         <div className='productCard__container'>

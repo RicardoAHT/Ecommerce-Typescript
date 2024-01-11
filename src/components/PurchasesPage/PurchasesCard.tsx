@@ -19,7 +19,7 @@ interface Purchase {
 
 const PurchasesCard: React.FC<{ purchase: Purchase }> = ({purchase}) => {
   const product = purchase.product
-  //console.log(purchase)
+
   return (
     <article className='cartCard'>
       <div className='cartCard__container__img'>

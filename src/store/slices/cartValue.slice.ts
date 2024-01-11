@@ -4,7 +4,8 @@ export const cartValueSlice = createSlice({
     name: "cartValue",
     initialState: 0,
     reducers:{
-        setCartValueSlice: ( state, action) => action.payload
+        // @ts-ignore
+        setCartValueSlice: ( state, action: PayloadAction) => action.payload
     }
 })
 

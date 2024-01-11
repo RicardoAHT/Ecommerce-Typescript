@@ -4,15 +4,16 @@ import { useDispatch } from 'react-redux'
 
 const FilterByPrice: React.FC = () => {
 
-  const from = useRef()
-  const to = useRef()
+  const from = useRef<HTMLInputElement>(null)
+  const to = useRef<HTMLInputElement>(null)
   const dispatch = useDispatch()
-  const handleFilterPrice = () => {
-    let min = parseInt(from.current.value)
-    let max = parseInt(to.current.value)
+  const handleFilterPrice = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    let min = parseInt(from.current?.value || "0")
+    let max = parseInt(to.current?.value || "Infinity")
     if(max*0 !== 0){ max = Infinity}
     if(min*0 !== 0){ min = 0}
-    console.log(max)
+    // @ts-ignore
     dispatch(setPriceFilterSlice([min, max]))
   }
   

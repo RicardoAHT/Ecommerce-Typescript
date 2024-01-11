@@ -3,23 +3,6 @@ import PurchasesCard from './PurchasesCard'
 import Loading from '../shared/Loading'
 import useFetchToken from '../../hooks/useFetchToken'
 
-interface Purchase { // Agrego la estructura de datos
-  product:{
-    id:number
-    title: string
-    price: string
-    images:[
-      {
-        url: string
-      }
-    ]
-  }
-  id: number;
-  quantity: number
-  productId: number;
-  createdAt: string;
-}
-
 const PurchasesList: React.FC = () => {
 
   const [purchases, getPurchases, hasError, loading] = useFetchToken()
@@ -27,7 +10,7 @@ const PurchasesList: React.FC = () => {
   useEffect(() => {
     getPurchases("/purchases")
   }, [])
-  //console.log(purchases)
+
   if (loading) {
     return (
       <div>
@@ -40,7 +23,6 @@ const PurchasesList: React.FC = () => {
     return <p>Error al obtener los datos.</p>;
   }
   
-  console.log(purchases)
   return (
     <section className='purchasesList'>
       <article>

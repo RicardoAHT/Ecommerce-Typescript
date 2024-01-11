@@ -15,17 +15,18 @@ const useAuth = () => {
                 const token = response.data.token  
                 const name = response.data.user.firstName 
                 const email = response.data.user.email  
-                localStorage.setItem("token", response.data.token) // El primer parametro es el nombre que le vamos a dar en el local storage y el segundo es el valor
+                localStorage.setItem("token", response.data.token) //! El primer parametro es el nombre que le vamos a dar en el local storage y el segundo es el valor
                 localStorage.setItem("name", response.data.user.firstName)  
                 localStorage.setItem("email", response.data.user.email) 
-                const obj = {token, name, email} 
-                dispatch(setCredentialsSlice(obj)) //Guardo la informacion en un estado global
+                const obj = {token, name, email}
+                // @ts-ignore
+                dispatch(setCredentialsSlice(obj)) //! Guardo la informacion en un estado global
                 navigate("/")
-                //console.log(response.data) 
             })
             .catch(error => {
-                dispatch(setCredentialsSlice(null)) //Le paso null al estado global en caso de credenciales incorrectas
-                // Reseteo los elementos guardados en el local storage
+                // @ts-ignore
+                dispatch(setCredentialsSlice(null)) //! Le paso null al estado global en caso de credenciales incorrectas
+                //! Reseteo los elementos guardados en el local storage
                 localStorage.removeItem("token")
                 localStorage.removeItem("username")
                 localStorage.removeItem("email")
@@ -38,7 +39,7 @@ const useAuth = () => {
         .then(response => console.log(response.data) )
         .catch(error => console.log(error))
     }
-    return {loginUser, registerUser} //? Retorno un objeto para que no se modifique los nombres a diferencia de un array que se pueden modificar los nombres cuando se reciban
+    return {loginUser, registerUser} //! Retorno un objeto para que no se modifique los nombres a diferencia de un array que se pueden modificar los nombres cuando se reciban
 }
 
 export default useAuth
