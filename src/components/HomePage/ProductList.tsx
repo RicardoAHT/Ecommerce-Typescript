@@ -12,7 +12,7 @@ const ProductList: React.FC = () => {
     const search = useSelector((store: RootState) => store.search)
     const priceFilter = useSelector((store: RootState) => store.priceFilter)
 
-    const url = `https://ecommercebackendbyrick.onrender.com/products${search}`
+    const url = `https://ecommerce-academlo-backend-5ir7.onrender.com/products${search}`
     const [products, getProducts, hasError, loading] = useFetch(url)
   
     useEffect(() => {
