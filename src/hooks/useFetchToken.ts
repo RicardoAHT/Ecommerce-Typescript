@@ -28,7 +28,7 @@ const useFetchToken = () => {
 
     const getApi = (path: string) => {
         setLoading(true)
-        const url = `https://ecommercebackendbyrick.onrender.com${path}`
+        const url = `https://ecommerce-academlo-backend-5ir7.onrender.com${path}`
         axios.get<ApiResponse[]>(url, getConfigToken())
             .then( res => {
                 setInfoApi(res.data)

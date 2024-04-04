@@ -51,7 +51,7 @@ const useFetchCart = () => {
 
     const getCart = (path: string) => {
         setLoading(true)
-        const url = `https://ecommercebackendbyrick.onrender.com${path}`
+        const url = `https://ecommerce-academlo-backend-5ir7.onrender.com${path}`
         axios.get<ApiResponse[]>(url, getConfigToken())
             .then( res => {
                 setInfoApi(res.data)
@@ -88,7 +88,7 @@ const useFetchCart = () => {
 
     const postApi = (path: string, data:{}) => {
         setLoading(true)
-        const url = `https://ecommercebackendbyrick.onrender.com${path}`
+        const url = `https://ecommerce-academlo-backend-5ir7.onrender.com${path}`
         axios.post(url, data, getConfigToken())
             .then(response =>{
                 setInfoApi( response.data )
@@ -101,7 +101,7 @@ const useFetchCart = () => {
 
     const deleteApi = (path: string, id: number) =>{
         setLoading(true)
-        const url = `https://ecommercebackendbyrick.onrender.com${path}/${id}`
+        const url = `https://ecommerce-academlo-backend-5ir7.onrender.com${path}/${id}`
         axios.delete(url, getConfigToken())
             // @ts-ignore
             .then(response => {
@@ -115,7 +115,7 @@ const useFetchCart = () => {
 
     const buyCart = (path: string) => {
         setLoading(true)
-        const url = `https://ecommercebackendbyrick.onrender.com${path}`
+        const url = `https://ecommerce-academlo-backend-5ir7.onrender.com${path}`
         axios.post(url, {}, getConfigToken())
             .then(response =>{
                 setInfoApi( response.data )
@@ -127,7 +127,7 @@ const useFetchCart = () => {
     }
 
     const updateCartQuantity = (path:string, id:number, data:{}) => {
-        const url = `https://ecommercebackendbyrick.onrender.com${path}/${id}/`
+        const url = `https://ecommerce-academlo-backend-5ir7.onrender.com${path}/${id}/`
         axios.put(url, data, getConfigToken())
             .then(reponse => reponse.data)
             .catch(error => console.log(error))

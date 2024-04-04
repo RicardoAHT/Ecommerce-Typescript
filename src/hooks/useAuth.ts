@@ -4,7 +4,7 @@ import { setCredentialsSlice } from "../store/slices/credentials.slice"  //! Mod
 import { useNavigate } from "react-router-dom"
 
 const useAuth = () => {
-    const baseUrl = "https://ecommercebackendbyrick.onrender.com" //! Modificar la baseUrl
+    const baseUrl = "https://ecommerce-academlo-backend-5ir7.onrender.com" //! Modificar la baseUrl
     const dispatch = useDispatch()
     const navigate = useNavigate()
     
